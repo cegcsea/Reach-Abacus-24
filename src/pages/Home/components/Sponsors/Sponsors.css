@@ -10,8 +10,8 @@
 .line {
     width: 20%;
     height: 1px; /* Adjust the height as needed */
-    background-color: rgb(193, 36, 193); /* Purple color */
-    margin-left: 16px;
+    background-color: #C778DD; /* Purple color */
+    margin-left: 12px;
 }
 
 /* Sponsors.css */
