@@ -19,7 +19,6 @@ const Sponsors = () => {
                 <div className="line w-2/3 h-px bg-[#C778DD]"></div>
             </div>
             <div id='con' className='flex flex-col md:flex-row gap-6' style={{ height: '85%' }}>
-                {/* Conditional rendering based on screen size */}
                 <div className='left-content md:w-2/6 h-full overflow-hidden hidden md:block'>
                     <img src={sponsors} alt="Sponsor Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
