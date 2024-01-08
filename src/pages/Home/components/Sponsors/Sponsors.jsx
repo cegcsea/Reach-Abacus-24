@@ -11,12 +11,12 @@ import { sponsorData } from '../../../../constants';
 const Sponsors = () => {
     return (
         <div className='sponsor bg-content' style={{ minHeight: '100vh' }}>
-            <div className='p-4 flex items-center font-sans justify-left text-white text-2xl' style={{ height: '15%' }}>
+            <div className='p-4 flex items-center font-sans justify-left text-white text-[32px]' style={{ height: '15%' }}>
                 <h1>
                     <span className="text-purple-500">#</span>
                     <span className="text-white">sponsors</span>
                 </h1>
-                <div className="line"></div>
+                <div className="line w-2/3 h-px bg-[#C778DD]"></div>
             </div>
             <div id='con' className='flex flex-col md:flex-row gap-6' style={{ height: '85%' }}>
                 {/* Conditional rendering based on screen size */}
