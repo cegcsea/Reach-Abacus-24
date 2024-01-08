@@ -25,8 +25,8 @@ const Navbar = () => {
           }`}
           onClick={() => handleButtonClick('home')}
         >
-          <span className={`text-${activeButton === 'home' ? 'white' : 'purple-500'}`}>#</span>
-          <span className={`text-${activeButton === 'home' ? 'purple-500' : 'white'}`}>home</span>
+          <span className={`text-${activeButton === 'home' ? 'white' : '[#C778DD]'}`}>#</span>
+          <span className={`text-${activeButton === 'home' ? '[#C778DD]' : 'white'}`}>home</span>
         </button>
         <button
           className={`text-white flex items-center ${
@@ -34,8 +34,8 @@ const Navbar = () => {
           }`}
           onClick={() => handleButtonClick('about')}
         >
-          <span className={`text-${activeButton === 'about' ? 'white' : 'purple-500'}`}>#</span>
-          <span className={`text-${activeButton === 'about' ? 'purple-500' : 'white'}`}>about</span>
+          <span className={`text-${activeButton === 'about' ? 'white' : '[#C778DD]'}`}>#</span>
+          <span className={`text-${activeButton === 'about' ? '[#C778DD]' : 'white'}`}>about</span>
         </button>
         <button
           className={`text-white flex items-center ${
@@ -43,8 +43,8 @@ const Navbar = () => {
           }`}
           onClick={() => handleButtonClick('events')}
         >
-          <span className={`text-${activeButton === 'events' ? 'white' : 'purple-500'}`}>#</span>
-          <span className={`text-${activeButton === 'events' ? 'purple-500' : 'white'}`}>events</span>
+          <span className={`text-${activeButton === 'events' ? 'white' : '[#C778DD]'}`}>#</span>
+          <span className={`text-${activeButton === 'events' ? '[#C778DD]' : 'white'}`}>events</span>
         </button>
         <button
           className={`text-white flex items-center ${
@@ -52,8 +52,8 @@ const Navbar = () => {
           }`}
           onClick={() => handleButtonClick('workshops')}
         >
-          <span className={`text-${activeButton === 'workshops' ? 'white' : 'purple-500'}`}>#</span>
-          <span className={`text-${activeButton === 'workshops' ? 'purple-500' : 'white'}`}>workshops</span>
+          <span className={`text-${activeButton === 'workshops' ? 'white' : '[#C778DD]'}`}>#</span>
+          <span className={`text-${activeButton === 'workshops' ? '[#C778DD]' : 'white'}`}>workshops</span>
         </button>
         <button
           className={`text-white flex items-center ${
@@ -61,8 +61,8 @@ const Navbar = () => {
           }`}
           onClick={() => handleButtonClick('login')}
         >
-          <span className={`text-${activeButton === 'login' ? 'white' : 'purple-500'}`}>#</span>
-          <span className={`text-${activeButton === 'login' ? 'purple-500' : 'white'}`}>login</span>
+          <span className={`text-${activeButton === 'login' ? 'white' : '[#C778DD]'}`}>#</span>
+          <span className={`text-${activeButton === 'login' ? '[#C778DD]' : 'white'}`}>login</span>
         </button>
       </div>
 

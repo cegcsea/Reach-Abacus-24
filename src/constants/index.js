@@ -34,3 +34,18 @@ export const developersData = [
         disc: "Backend Developer",
     },
 ];
+
+export const contactsData = [
+    {
+        name : "Person 1",
+        phone: "807xx xxxxx",
+    },
+    {
+        name : "Person 2",
+        phone: "807xx xxxxx",
+    },
+    {
+        name : "Person 3",
+        phone: "807xx xxxxx",
+    },
+];
