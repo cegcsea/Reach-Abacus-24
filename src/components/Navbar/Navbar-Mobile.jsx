@@ -14,7 +14,7 @@ const Navigation = () => {
   const [active, setActive] = useState(0); 
 
   return (
-    <div className="bg-[rgba(165,55,253,0.5)] h-[4.4rem] px-6 rounded-xl mb-4 flex items-center">
+    <div className="bg-[#24272dac] h-[4.4rem] px-6 rounded-xl mb-4 flex items-center">
       <ul className="flex relative list-none">
         {Menus.map((menu, i) => (
           <li key={i} className="w-16">
@@ -30,8 +30,8 @@ const Navigation = () => {
                 <div
                   className={`rounded-full p-2 flex items-center justify-center ${
                     i === active
-                      ? "bg-black border-2 border-purple-500"
-                      : "bg-orange-400"
+                      ? "bg-[#242424] border border-[#ABB2BF]"
+                      : "bg-[#C778DD]"
                   }`}
                 >
                   {React.createElement(menu.icon)}
@@ -40,7 +40,7 @@ const Navigation = () => {
               <span
                 className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 ${
                   active === i
-                    ? "translate-y-4 duration-700 opacity-100"
+                    ? "translate-y-6 duration-700 opacity-100"
                     : "opacity-0 translate-y-10"
                 }`}
               >
