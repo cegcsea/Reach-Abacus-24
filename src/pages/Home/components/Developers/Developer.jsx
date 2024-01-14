@@ -6,7 +6,7 @@ const Developers = () => {
         <>
             <div className="px-5 max-w-[1560px] mx-auto mt-20 py-10">
                 <div className=" flex justify-between items-center gap-5">
-                    <div data-aos="fade-down" className=" text-white w-2/3 font-medium text-[32px] flex items-center gap-2">
+                    <div className=" text-white w-2/3 font-medium text-[32px] flex items-center gap-2">
                         <div className="">
                             <span className="text-[#C778DD]">#</span>developers
                         </div>
@@ -14,16 +14,9 @@ const Developers = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap justify-between gap-4 my-12">
-                    {developersData.map(({ img, langs, title, disc }) => {
+                    {developersData.map(({ img, title, disc }) => {
                         return (
-                            <>
-                                <DevCard
-                                    img={img}
-                                    langs={langs}
-                                    title={title}
-                                    disc={disc}
-                                />
-                            </>
+                            <DevCard img={img} title={title} disc={disc} />
                         );
                     })}
                 </div>
