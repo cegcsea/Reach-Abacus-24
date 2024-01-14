@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import navImage from '../../assets/nav-img.png';
 import Navigation from './Navbar-Mobile';
 
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState('home');
 
-  const handleButtonClick = (button) => {
-    setActiveButton(button);
+  const handleButtonClick = (Link) => {
+    setActiveButton(Link);
   };
 
   return (
@@ -19,7 +20,8 @@ const Navbar = () => {
 
       {/* Regular menu for larger screens */}
       <div className="hidden lg:flex items-center space-x-4">
-      <button
+      <Link
+          to="/"
           className={`text-white flex items-center ${
             activeButton === 'home' ? 'border-b-2 border-purple-300' : ''
           }`}
@@ -27,8 +29,9 @@ const Navbar = () => {
         >
           <span className={`text-${activeButton === 'home' ? 'white' : '[#C778DD]'}`}>#</span>
           <span className={`text-${activeButton === 'home' ? '[#C778DD]' : 'white'}`}>home</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/"
           className={`text-white flex items-center ${
             activeButton === 'about' ? 'border-b-2 border-purple-300' : ''
           }`}
@@ -36,8 +39,9 @@ const Navbar = () => {
         >
           <span className={`text-${activeButton === 'about' ? 'white' : '[#C778DD]'}`}>#</span>
           <span className={`text-${activeButton === 'about' ? '[#C778DD]' : 'white'}`}>about</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/"
           className={`text-white flex items-center ${
             activeButton === 'events' ? 'border-b-2 border-purple-300' : ''
           }`}
@@ -45,8 +49,9 @@ const Navbar = () => {
         >
           <span className={`text-${activeButton === 'events' ? 'white' : '[#C778DD]'}`}>#</span>
           <span className={`text-${activeButton === 'events' ? '[#C778DD]' : 'white'}`}>events</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/workshop"
           className={`text-white flex items-center ${
             activeButton === 'workshops' ? 'border-b-2 border-purple-300' : ''
           }`}
@@ -54,8 +59,9 @@ const Navbar = () => {
         >
           <span className={`text-${activeButton === 'workshops' ? 'white' : '[#C778DD]'}`}>#</span>
           <span className={`text-${activeButton === 'workshops' ? '[#C778DD]' : 'white'}`}>workshops</span>
-        </button>
-        <button
+        </Link>
+        <Link
+          to="/"
           className={`text-white flex items-center ${
             activeButton === 'login' ? 'border-b-2 border-purple-300' : ''
           }`}
@@ -63,7 +69,7 @@ const Navbar = () => {
         >
           <span className={`text-${activeButton === 'login' ? 'white' : '[#C778DD]'}`}>#</span>
           <span className={`text-${activeButton === 'login' ? '[#C778DD]' : 'white'}`}>login</span>
-        </button>
+        </Link>
       </div>
 
       {/* Navigation for smaller screens */}
