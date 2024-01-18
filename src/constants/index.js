@@ -49,3 +49,34 @@ export const contactsData = [
         phone: "807xx xxxxx",
     },
 ];
+
+export const events = [
+    {
+        title: "Event 1",
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        tag: "Technical Events are twinkle twinkle little star",
+        image : Code,
+        prize: "Rs.5,000"
+    },
+    {
+        title: "Event 2",
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        tag: "Technical Events are twinkle twinkle little star",
+        image : Code,
+        prize: "Rs.5,000"
+    },
+    {
+        title: "Event 3",
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        tag: "Technical Events are twinkle twinkle little star",
+        image : Code,
+        prize: "Rs.5,000"
+    },
+    {
+        title: "Event 4",
+        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        tag: "Technical Events are twinkle twinkle little star",
+        image : Code,
+        prize: "Rs.5,000"
+    },
+]
