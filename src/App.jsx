@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavBar } from './components';
-import { Home, Events } from './pages';
+import { Home, Events, SingleEvent } from './pages';
 
 export const App = () => {
   return (
@@ -10,6 +10,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/events' element={<Events />} />
+        <Route path='/events/event' element={<SingleEvent />} />
       </Routes>
     </Router>
   )
