@@ -1,13 +1,13 @@
-import React from 'react'
-import { contactsData } from '../../../../constants'
-import PhoneCard from '../../../../components/PhoneCard/Phone'
+import React from 'react';
+import { contactsData } from '../../constants';
+import PhoneCard from '../PhoneCard/Phone';
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { CiLinkedin } from "react-icons/ci";
 
 const Footer = () => {
     return (
-        <div className='footer border border-t-1 border-x-0 border-b-0 border-[#ABB2BF] pt-6 bg-[#202227]'>
+        <div className='footer border border-t-1 border-x-0 border-b-0 border-[#ABB2BF] pt-6 bg-[#292d33]'>
             <div className='head flex items-center pl-4 text-white text-2xl'>
                 <h1>
                     <span className="text-[#C778DD] font-bold">#</span>

@@ -3,7 +3,7 @@ import Code from '../../assets/Devs/Code.jpg';
 
 function Event() {
     return (
-        <div className='px-5 flex flex-col justify-center items-center pb-10'>
+        <div className='px-5 flex flex-col justify-center items-center pb-10 bg-[#34363e]'>
             <div className="text-white font-medium mt-[68px] mb-[48px] text-[32px] self-start">
                 <p>
                     <span className=" text-[#C778DD]">/</span>

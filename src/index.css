@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Jost:wght@100;200;300;400;500;600;700;800&display=swap');
+
 .bg-navbar {
   background-color: #292d33;
 }
 
 body {
-  background-color: #30343a;
+  background-color: #292d33;
+  font-family: 'Jost', sans-serif;
 }
 
 ::selection {
