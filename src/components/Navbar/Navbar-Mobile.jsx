@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { FaHome, FaExclamationCircle, FaTools } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 import { MdEventAvailable } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const Menus = [
-    { name: "Home", icon: FaHome, dis: "translate-x-0" },
-    { name: "About", icon: FaExclamationCircle, dis: "translate-x-16" },
-    { name: "Login", icon: FiLogIn, dis: "translate-x-32" },
-    { name: "Workshops", icon: FaTools, dis: "translate-x-48" },
-    { name: "Events", icon: MdEventAvailable, dis: "translate-x-64" },
+    { name: "Home", icon: FaHome, dis: "translate-x-0", path: "/"},
+    { name: "About", icon: FaExclamationCircle, dis: "translate-x-16", path: "/" },
+    { name: "Login", icon: FiLogIn, dis: "translate-x-32", path: "/" },
+    { name: "Workshops", icon: FaTools, dis: "translate-x-48", path: "/workshop" },
+    { name: "Events", icon: MdEventAvailable, dis: "translate-x-64", path: "/" },
   ];
   const [active, setActive] = useState(0); 
 
@@ -18,7 +19,8 @@ const Navigation = () => {
       <ul className="flex relative list-none">
         {Menus.map((menu, i) => (
           <li key={i} className="w-16">
-            <a
+            <Link
+              to={menu.path}
               className="flex flex-col items-center text-center pt-2 relative"
               onClick={() => setActive(i)}
             >
@@ -46,7 +48,7 @@ const Navigation = () => {
               >
                 {menu.name}
               </span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
