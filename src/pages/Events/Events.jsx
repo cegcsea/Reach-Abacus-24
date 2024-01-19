@@ -38,7 +38,7 @@ function Events() {
                                     <div>
                                         <h2 className=' text-white font-medium text-2xl border border-b border-x-0 border-t-0 p-3'>
                                             <span className='text-[#C778DD]'>&#60;</span>
-                                            {title}
+                                            &nbsp;{title}&nbsp;
                                             <span className='text-[#C778DD]'>&#62;</span>
                                         </h2>
                                         <p className=' text-[#e2e3e4] p-3'>

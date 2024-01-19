@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavBar, Footer } from './components';
-import { Home, Events, SingleEvent, Workshop } from './pages';
+import {
+  Home, Events, SingleEvent,
+  Workshop, Login, SignUpDetails
+} from './pages';
 
 export const App = () => {
   return (
@@ -13,6 +16,8 @@ export const App = () => {
           <Route path='/workshop' element={<Workshop />} />
           <Route path='/events' element={<Events />} />
           <Route path='/events/event' element={<SingleEvent />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup/details' element={<SignUpDetails />} />
         </Routes>
       </div>
       <Footer />

@@ -8,9 +8,9 @@ const Navigation = () => {
   const Menus = [
     { name: "Home", icon: FaHome, dis: "translate-x-0", path: "/"},
     { name: "About", icon: FaExclamationCircle, dis: "translate-x-16", path: "/" },
-    { name: "Login", icon: FiLogIn, dis: "translate-x-32", path: "/" },
+    { name: "Login", icon: FiLogIn, dis: "translate-x-32", path: "/login" },
     { name: "Workshops", icon: FaTools, dis: "translate-x-48", path: "/workshop" },
-    { name: "Events", icon: MdEventAvailable, dis: "translate-x-64", path: "/" },
+    { name: "Events", icon: MdEventAvailable, dis: "translate-x-64", path: "/events" },
   ];
   const [active, setActive] = useState(0); 
 
