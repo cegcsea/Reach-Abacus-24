@@ -1,15 +1,15 @@
 import React from 'react';
-import bg1 from './assests/bg1.png';
+import bg1 from '../../../assets/Reach/MERN.png';
 
 function Workshop_content() {
   return (
     <div className='px-5 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1'>
       {/* First Column */}
-      <div className="lg:w-full md:w-full sm:w-full">
+      <div className="lg:w-full md:w-full sm:w-full flex justify-center items-center">
         <img
           src={bg1}
           alt="Workshop"
-          className="w-full h-auto"
+          className="w-full"
         />
       </div>
 
@@ -18,7 +18,7 @@ function Workshop_content() {
         <div className=' flex items-center font-sans justify-left text-white text-[32px]'>
           <h1>
             <span className="text-[#C778DD]">#</span>
-            <span className="text-white">workshop-name</span>
+            <span className="text-white">MERN_Stack_Development</span>
           </h1>
           <div className="line w-2/3 h-px bg-[#C778DD]"></div>
         </div>
@@ -26,14 +26,11 @@ function Workshop_content() {
         {/* Content below the title */}
         <div className=" text-white">
           <p className='text-justify'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed accumsan quam vel justo lacinia, in scelerisque ipsum facilisis.
-            Maecenas tincidunt lacus euismod erat fermentum, ut viverra sapien consequat.
-            Nullam sit amet metus nec leo rhoncus finibus nec id lectus. Suspendisse potenti.
-            Proin pulvinar ullamcorper purus, a luctus elit luctus ut.
-            Vestibulum tincidunt, libero a volutpat cursus, ipsum justo tristique odio,
-            sit amet lacinia odio eros vel odio. Integer quis ligula vel odio eleifend eleifend.
-            Vivamus ullamcorper urna vitae ipsum eleifend, non sodales dolor vulputate.
+            Engage in hands-on learning as we guide you through creating a simple yet impactful full-stack project. Ideal for both beginners and intermediate developers, this workshop not only provides valuable insights into essential MERN concepts but also offers guidance on further learning. Discover effective strategies and resources to stay updated with evolving technologies. As a bonus, practical suggestions on hosting full stack applications will be shared, ensuring you're well-equipped to take your projects live with confidence.<br />
+            <br />
+            Join us for a day of immersive learning, collaboration, and skill-building.<br/><br />
+
+            <p><span className='font-bold'>Pre-requisite:</span> Basics of HTML, CSS & JS.</p>
           </p>
         </div>
         <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>

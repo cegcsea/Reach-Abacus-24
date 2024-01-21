@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { events } from '../../constants';
 import dots from '../../assets/Events/sidebg.png';
+import { useNavigate } from 'react-router-dom';
 
 function Events() {
+    const navigate = useNavigate();
+
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -28,7 +31,7 @@ function Events() {
             <div className="cards flex justify-center gap-10">
                 <div className='w-full sm:w-4/5 flex flex-col gap-10'>
                     {events.map(event => {
-                        let { title, body, image } = event;
+                        let { title, body, image, to } = event;
                         return (
                             <div className="card w-full flex sm:flex-row flex-col border border-[#ABB2BF]">
                                 <div className='w-full sm:w-2/5 p-5 border border-r-0 border-b sm:border-r sm:border-y-0 border-l-0'>
@@ -45,7 +48,8 @@ function Events() {
                                             {body.slice(0, 280)}...&nbsp;<span className='text-[#ABB2BF]'>Read More</span>
                                         </p>
                                     </div>
-                                    <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+                                    <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
+                                    onClick={()=>navigate(`/events/${to}`)}>
                                         Read More {'<'}~{'>'}
                                     </button>
                                 </div>

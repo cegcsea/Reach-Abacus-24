@@ -1,13 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import dots from '../../../assets/Events/sidebg.png';
 
 function SignUpDetails() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        setIsMobile(mediaQuery.matches);
+
+        const handleMediaQueryChange = (event) => {
+            setIsMobile(event.matches);
+        };
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+        return () => {
+            mediaQuery.removeEventListener("change", handleMediaQueryChange);
+        };
+    }, []);
+
     return (
-        <div className="flex justify-center items-center py-10 bg-[#34363e] h-screen gap-5">
-            <div className="w-[30%] flex justify-center items-center">
-                <img src={dots} alt="dots-bg" />
-            </div>
-            <div className="querybox flex flex-col gap-7 w-2/5 border mt-7 border-[#ABB2BF] border-solid border-white-500 text-white p-10 bg-[#282C33]">
+        <div className="flex justify-center items-center py-10 sm:px-0 px-4 bg-[#34363e] h-screen gap-5">
+            {!isMobile && (
+                <div className="w-[30%] flex justify-center items-center">
+                    <img src={dots} alt="dots-bg" />
+                </div>
+            )}
+            <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#ABB2BF] border-solid border-white-500 text-white p-5 sm:p-10 bg-[#282C33]">
                 <div className='text-2xl text-center'>
                     <span className='text-[#C778DD]'>&#60;</span>
                     &nbsp;Sign up&nbsp;
@@ -53,9 +71,11 @@ function SignUpDetails() {
                     </div>
                 </form>
             </div>
-            <div className="w-[30%] flex justify-center items-center rotate-180">
-                <img src={dots} alt="dots-bg" />
-            </div>
+            {!isMobile && (
+                <div className="w-[30%] flex justify-center items-center rotate-180">
+                    <img src={dots} alt="dots-bg" />
+                </div>
+            )}
         </div>)
 }
 

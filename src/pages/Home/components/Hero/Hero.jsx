@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Banner from "../../../../assets/Hero/banner.png";
+import Banner from "../../../../assets/Reach/Reach_logo.png";
 import Logo from "../../../../assets/Hero/abacus_logo.png"
 
 const Hero = () => {

@@ -8,6 +8,12 @@ import spon6 from '../assets/Sponsors/spon6.jpg';
 
 import Code from '../assets/Devs/Code.jpg';
 
+import MERN from '../assets/Reach/MERN.png';
+import OSPC from '../assets/Reach/OSPC.png';
+import ReverseCoding from '../assets/Reach/ReverseCoding.png';
+import UIUX from '../assets/Reach/UI UX.png';
+import GeekQuiz from '../assets/Reach/Geek_Quiz.png';
+
 export const sponsorData = [
     { image: spon1, name: 'Motarq', desc: 'Title Sponsor' },
     { image: spon2, name: 'Interview cake', desc: 'Coupon Sponsor' },
@@ -52,31 +58,35 @@ export const contactsData = [
 
 export const events = [
     {
-        title: "Event 1",
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        title: "Geek_Quiz",
+        body: 'Engage in a captivating quiz, battling wits in math, science, and logic. Thought-provoking questions challenge analytical abilities, showcasing expertise in numbers, science, and reasoning.', 
         tag: "Technical Events are twinkle twinkle little star",
-        image : Code,
+        to: "geekquiz",
+        image : GeekQuiz,
         prize: "Rs.5,000"
     },
     {
-        title: "Event 2",
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        title: "OSPC",
+        body: 'A programming contest where the convergence of ingenious minds tackling intricate coding conundrums! Engage in a contest where participants navigate challenges featuring complex data structures and algorithms.', 
         tag: "Technical Events are twinkle twinkle little star",
-        image : Code,
+        to: "ospc",
+        image : OSPC,
         prize: "Rs.5,000"
     },
     {
-        title: "Event 3",
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        title: "UI/UX_design",
+        body: 'Dive into the ultimate design competition, where creativity meets functionality. Elevate user experiences, push UI boundaries, and showcase your prowess in crafting seamless, innovative designs.', 
         tag: "Technical Events are twinkle twinkle little star",
-        image : Code,
+        to: "uiux",
+        image : UIUX,
         prize: "Rs.5,000"
     },
     {
-        title: "Event 4",
-        body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta sint molestiae quas voluptatibus voluptates alias, corporis, reiciendis voluptatum dolore excepturi, doloremque optio molestias fuga dicta animi. Adipisci illum nam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti praesentium, iure deserunt aperiam odio quia commodi nulla repellat nihil dolorum, harum fuga fugiat. Et dolor hic nam consectetur voluptates!', 
+        title: "Reverse_Coding",
+        body: 'Participants receive an executable file that takes input and produces output. Their challenge is to reverse engineer the solution by analyzing the given input-output pairs.', 
         tag: "Technical Events are twinkle twinkle little star",
-        image : Code,
+        to: "reversecoding",
+        image : ReverseCoding,
         prize: "Rs.5,000"
     },
 ]
