@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   const Menus = [
     { name: "Home", icon: FaHome, dis: "translate-x-0", path: "/"},
-    { name: "About", icon: FaExclamationCircle, dis: "translate-x-16", path: "/about" },
-    { name: "Login", icon: FiLogIn, dis: "translate-x-32", path: "/login" },
     { name: "Workshops", icon: FaTools, dis: "translate-x-48", path: "/workshop" },
     { name: "Events", icon: MdEventAvailable, dis: "translate-x-64", path: "/events" },
+    { name: "About", icon: FaExclamationCircle, dis: "translate-x-16", path: "/about" },
+    { name: "Login", icon: FiLogIn, dis: "translate-x-32", path: "/login" },
   ];
   const [active, setActive] = useState(0); 
 

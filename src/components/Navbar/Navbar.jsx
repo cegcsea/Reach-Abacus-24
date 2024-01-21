@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* Left side - Icon and Heading */}
       <div className="flex items-center">
         <img src={navImage} alt="Abacus Icon" className="w-8 h-8 mr-2" />
-        <span className="font-bold text-lg">Abacus</span>
+        <span className="font-bold text-lg">Reach</span>
       </div>
 
       {/* Regular menu for larger screens */}
