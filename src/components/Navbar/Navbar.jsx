@@ -51,7 +51,7 @@ const Navbar = () => {
           <span className={`text-${activeButton === 'events' ? '[#C778DD]' : 'white'}`}>events</span>
         </Link>
         <Link
-          to="/workshop"
+          to="/workshops"
           className={`text-white flex items-center ${
             activeButton === 'workshops' ? 'border-b-2 border-purple-300' : ''
           }`}

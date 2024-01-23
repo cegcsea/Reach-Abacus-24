@@ -25,11 +25,6 @@ const Sponsors = () => {
                 </div>
                 <div className='right-content md:ml-[20px] grid gap-4 items-center justify-items-center md:w-3/5' style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', height: '100%' }}>
                     {sponsorData.map((sponsor, index) => (
-                        // <div key={index} className='text-center flex flex-col items-center border border-white p-4'>
-                        //     <img src={sponsor.image} alt={`Sponsor ${index + 1}`} style={{ maxWidth: '70%', maxHeight: '70%', objectFit: 'cover' }} />
-                        //     <p className='mt-2 text-white font-style'>{sponsor.name}</p>
-                        //     <p className='mt-0 text-white font-style1'>{sponsor.desc}</p>
-                        // </div>
                         <div className="border border-[#ABB2BF]">
                             <div className=" p-2">
                                 <h2 className=" font-semibold text-slate-300 text-center">{sponsor.desc}</h2>
