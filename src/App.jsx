@@ -5,7 +5,8 @@ import {
   Home, Events, SingleEvent,
   Workshop, Login, SignUpDetails,
   About,
-  SingleWorkshop
+  SingleWorkshop,
+  Profile
 } from './pages';
 
 export const App = () => {
@@ -21,6 +22,7 @@ export const App = () => {
           <Route path='/events' element={<Events />} />
           <Route path='/events/:id' element={<SingleEvent />} />
           <Route path='/about' element={<About />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup/details' element={<SignUpDetails />} />
         </Routes>
