@@ -14,7 +14,6 @@ const Phone = ({ name, phone }) => {
         {phone}
       </div>
     </div>
-
   )
 }
 

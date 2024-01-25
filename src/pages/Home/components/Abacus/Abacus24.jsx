@@ -14,12 +14,12 @@ const Abacus24 = () => {
                 </h1>
                 <div className="line w-2/3 bg-[#C778DD] self-center"></div>
             </div>
-            <div className="abacus24-body pt-20 flex flex-wrap justify-center align-center">
+            <div className="abacus24-body flex flex-wrap justify-center align-center">
                 <div className="abacus24-content2 flex flex-col justify-center align-center text-white w-full md:w-full lg:w-1/2 xl:w-1/2 ">
                     <div className=""><img src={abacus24} alt=''></img></div>
                 </div>
-                <div className="abacus24-content text-justify w-70 pt-20 p-10 flex justify-center align-center text-white text-1xl h-100 w-full md:w-full lg:w-1/2 xl:w-1/2 items-center flex-col gap-4">
-                    <p className='text-xl text-slate-300'>
+                <div className="abacus24-content text-justify w-70 p-5 sm:p-10 flex justify-center align-center text-white text-1xl h-100 w-full md:w-full lg:w-1/2 xl:w-1/2 items-center flex-col gap-4">
+                    <p className='text-base sm:text-xl text-slate-300'>
                         The conglomeration of the brightest minds enhancing the participant’s knowledge and creative potentials. The 3 day annual symposium showcases 15+ events and flagship contests of crystal gazing technology. Abacus's coverage and deliberations of earlier symposia have been a grand success with insatiable thirst for technological development rejuvenating the technology with innovation. This year, Abacus is back offline on a grander scale with an innovative edge to all the events.
                     </p>
                     <div className='self-start'>
@@ -29,7 +29,6 @@ const Abacus24 = () => {
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     )

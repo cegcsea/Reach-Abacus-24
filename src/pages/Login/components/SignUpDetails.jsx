@@ -1,7 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LoaderContext } from '../../../context/LoaderContext';
+import { Loader } from '../../../components';
+
 import dots from '../../../assets/Events/sidebg.png';
 
 function SignUpDetails() {
+    const { isLoading } = useContext(LoaderContext);
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -17,6 +21,10 @@ function SignUpDetails() {
             mediaQuery.removeEventListener("change", handleMediaQueryChange);
         };
     }, []);
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <div className="flex justify-center items-center py-10 sm:px-0 px-4 bg-[#34363e] h-screen gap-5">

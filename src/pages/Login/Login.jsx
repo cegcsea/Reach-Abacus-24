@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { LoaderContext } from '../../context/LoaderContext';
+import { Loader } from '../../components';
+
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import dots from '../../assets/Events/sidebg.png';
 
 function Login() {
+    const { isLoading } = useContext(LoaderContext);
     const [isLogin, setLogin] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -20,6 +24,10 @@ function Login() {
             mediaQuery.removeEventListener("change", handleMediaQueryChange);
         };
     }, []);
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <div className="flex justify-between items-center gap-5 sm:px-0 px-4 py-10 bg-[#34363e] h-screen">

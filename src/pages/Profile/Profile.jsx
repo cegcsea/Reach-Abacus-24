@@ -1,9 +1,18 @@
-import React from 'react';
-import devrloper from '../../assets/Hero/profile.png';
+import React, { useContext } from 'react';
 import { FaLocationDot } from "react-icons/fa6";
 import { TbHanger } from "react-icons/tb";
+import { LoaderContext } from '../../context/LoaderContext';
+import { Loader } from '../../components';
+
+import devrloper from '../../assets/Hero/profile.png';
 
 function Profile() {
+    const { isLoading } = useContext(LoaderContext);
+
+    if (isLoading) {
+        return <Loader />;
+    }
+
     return (
         <div className='flex flex-col bg-[#34363e] px-5'>
             <div className="text-white font-medium pt-5 text-[32px] self-start">

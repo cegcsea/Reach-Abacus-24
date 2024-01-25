@@ -32,7 +32,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-[5rem] flex justify-center items-center px-10">
+            <div className="py-[5rem] flex justify-center items-center sm:px-10 px-2">
                 <img className="" src={Banner} alt="" />
             </div>
         </>

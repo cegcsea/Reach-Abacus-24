@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { events } from '../../constants';
-import dots from '../../assets/Events/sidebg.png';
+import { LoaderContext } from '../../context/LoaderContext';
+import { Loader } from '../../components';
 import { useNavigate } from 'react-router-dom';
 
-function Events() {
-    const navigate = useNavigate();
+import dots from '../../assets/Events/sidebg.png';
 
+function Events() {
+    const { isLoading } = useContext(LoaderContext);
+    const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -21,6 +24,10 @@ function Events() {
             mediaQuery.removeEventListener("change", handleMediaQueryChange);
         };
     }, []);
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <div className='px-5 flex flex-col justify-center items-center pb-10 bg-[#34363e]'>
@@ -49,7 +56,7 @@ function Events() {
                                         </p>
                                     </div>
                                     <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
-                                    onClick={()=>navigate(`/events/${to}`)}>
+                                        onClick={() => navigate(`/events/${to}`)}>
                                         Read More {'<'}~{'>'}
                                     </button>
                                 </div>

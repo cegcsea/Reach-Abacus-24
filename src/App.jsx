@@ -1,6 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { NavBar, Footer, ScrollToTop } from './components';
+import React, { useEffect, useContext, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { NavBar, Footer, ScrollToTop, Loader } from './components';
 import {
   Home, Events, SingleEvent,
   Workshop, Login, SignUpDetails,
@@ -9,9 +9,21 @@ import {
   Profile
 } from './pages';
 
+import { LoaderContext } from './context/LoaderContext';
+
 export const App = () => {
+  const { isLoading, setIsLoading } = useContext(LoaderContext);
+
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2500);
+    }
+  }, []);
+
   return (
-    <Router>
+    <Suspense fallback={<Loader />}>
       <ScrollToTop />
       <NavBar />
       <div className='px-[1.5rem] sm:px-[4rem]'>
@@ -28,7 +40,7 @@ export const App = () => {
         </Routes>
       </div>
       <Footer />
-    </Router>
+    </Suspense>
   )
 }
 

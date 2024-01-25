@@ -13,18 +13,19 @@ const Navbar = () => {
   return (
     <nav className="bg-navbar p-4 flex items-center font-sans justify-between text-white lg:relative">
       {/* Left side - Icon and Heading */}
-      <div className="flex items-center">
-        <img src={navImage} alt="Abacus Icon" className="w-8 h-8 mr-2" />
-        <span className="font-bold text-lg">Reach</span>
-      </div>
+      <Link to='/'>
+        <div className="flex items-center">
+          <img src={navImage} alt="Abacus Icon" className="w-8 h-8 mr-2" />
+          <span className="font-bold text-lg">Reach</span>
+        </div>
+      </Link>
 
       {/* Regular menu for larger screens */}
       <div className="hidden lg:flex items-center space-x-4">
-      <Link
+        <Link
           to="/"
-          className={`text-white flex items-center ${
-            activeButton === 'home' ? 'border-b-2 border-purple-300' : ''
-          }`}
+          className={`text-white flex items-center ${activeButton === 'home' ? 'border-b-2 border-purple-300' : ''
+            }`}
           onClick={() => handleButtonClick('home')}
         >
           <span className={`text-${activeButton === 'home' ? 'white' : '[#C778DD]'}`}>#</span>
@@ -32,9 +33,8 @@ const Navbar = () => {
         </Link>
         <Link
           to="/about"
-          className={`text-white flex items-center ${
-            activeButton === 'about' ? 'border-b-2 border-purple-300' : ''
-          }`}
+          className={`text-white flex items-center ${activeButton === 'about' ? 'border-b-2 border-purple-300' : ''
+            }`}
           onClick={() => handleButtonClick('about')}
         >
           <span className={`text-${activeButton === 'about' ? 'white' : '[#C778DD]'}`}>#</span>
@@ -42,9 +42,8 @@ const Navbar = () => {
         </Link>
         <Link
           to="/events"
-          className={`text-white flex items-center ${
-            activeButton === 'events' ? 'border-b-2 border-purple-300' : ''
-          }`}
+          className={`text-white flex items-center ${activeButton === 'events' ? 'border-b-2 border-purple-300' : ''
+            }`}
           onClick={() => handleButtonClick('events')}
         >
           <span className={`text-${activeButton === 'events' ? 'white' : '[#C778DD]'}`}>#</span>
@@ -52,9 +51,8 @@ const Navbar = () => {
         </Link>
         <Link
           to="/workshops"
-          className={`text-white flex items-center ${
-            activeButton === 'workshops' ? 'border-b-2 border-purple-300' : ''
-          }`}
+          className={`text-white flex items-center ${activeButton === 'workshops' ? 'border-b-2 border-purple-300' : ''
+            }`}
           onClick={() => handleButtonClick('workshops')}
         >
           <span className={`text-${activeButton === 'workshops' ? 'white' : '[#C778DD]'}`}>#</span>
@@ -62,9 +60,8 @@ const Navbar = () => {
         </Link>
         <Link
           to="/login"
-          className={`text-white flex items-center ${
-            activeButton === 'login' ? 'border-b-2 border-purple-300' : ''
-          }`}
+          className={`text-white flex items-center ${activeButton === 'login' ? 'border-b-2 border-purple-300' : ''
+            }`}
           onClick={() => handleButtonClick('login')}
         >
           <span className={`text-${activeButton === 'login' ? 'white' : '[#C778DD]'}`}>#</span>
@@ -73,9 +70,9 @@ const Navbar = () => {
       </div>
 
       {/* Navigation for smaller screens */}
-      <div className="lg:hidden fixed bottom-0 w-full m-2 flex justify-center items-center mx-auto" style={{left: '0px'}}>
-    <Navigation />
-</div>
+      <div className="lg:hidden fixed bottom-0 w-full m-2 flex justify-center items-center mx-auto" style={{ left: '0px' }}>
+        <Navigation />
+      </div>
 
 
     </nav>

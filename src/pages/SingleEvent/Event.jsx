@@ -1,11 +1,17 @@
-import React from 'react';
-import Code from '../../assets/Devs/Code.jpg';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { events } from '../../constants';
+import { LoaderContext } from '../../context/LoaderContext';
+import { Loader } from '../../components';
 
 function Event() {
+    const { isLoading } = useContext(LoaderContext);
     const { id } = useParams();
-
+    
+    if (isLoading) {
+        return <Loader />;
+    }
+    
     const selectedEvent = events.find((event) => event.to === id);
 
     return (
