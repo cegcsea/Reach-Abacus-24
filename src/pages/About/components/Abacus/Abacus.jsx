@@ -14,7 +14,6 @@ const Abacus24 = () => {
                             <span className="text-[#C778DD] font-bold">#</span>
                             <span className="text-white">abacus-2024</span>
                         </h1>
-                        <div className="line w-2/3 bg-[#C778DD] self-center"></div>
                     </div>
                     <p className='text-base sm:text-xl text-slate-300'>
                         ABACUS, orchestrated by the Computer Science and Engineering Association (CSEA) at the College of Engineering, Guindy, is an esteemed annual intercollege symposium.

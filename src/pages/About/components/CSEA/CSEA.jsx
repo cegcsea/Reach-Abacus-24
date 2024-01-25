@@ -14,7 +14,6 @@ const Abacus24 = () => {
                             <span className="text-[#C778DD] font-bold">#</span>
                             <span className="text-white">csea</span>
                         </h1>
-                        <div className="line w-2/3 bg-[#C778DD] self-center"></div>
                     </div>
                     <p className='text-base sm:text-xl text-slate-300'>
 

@@ -103,7 +103,7 @@ export const workshops = [
         title: "Introduction_to_Machine_Learning_with_Python",
         to: "mlusingpython",
         image: MERN,
-        content: "Embark on a thrilling half-day journey into the realm of machine learning with our workshop, 'Introduction to Machine Learning with Python' Whether you're a complete beginner or have some coding experience, this workshop is designed to make machine learning accessible and exciting in just a few hours. Dive into hands-on Python coding to create your own simple yet impactful machine learning model. No fuss, no jargon – just the essentials presented in a lively and approachable manner. Join us for a half-day of learning, coding, and exploration. ",
-        prerequistes: "No prior machine learning experience is required – just bring your curiosity, and let's make the most of this short but impactful ML adventure.",
+        content: "Embark on a thrilling half-day journey into the realm of machine learning with our workshop, 'Introduction to Machine Learning with Python.' Whether you're a complete beginner or have some coding experience, this workshop is designed to make machine learning accessible and exciting in just a few hours. Dive into hands-on Python coding to create your own simple yet impactful machine learning model. No fuss, no jargon – just the essentials presented in a lively and approachable manner. Join us for a half-day of learning, coding, and exploration.",
+        prerequistes: "No prior machine learning experience is required. Just bring your curiosity, and let's make the most of this short but impactful ML adventure!",
     },
 ]
