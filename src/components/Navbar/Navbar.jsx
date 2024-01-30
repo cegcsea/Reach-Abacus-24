@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import navImage from '../../assets/nav-img.png';
 import Navigation from './Navbar-Mobile';
 
 const Navbar = () => {
+  const { auth } = useContext(AuthContext);
   const [activeButton, setActiveButton] = useState('home');
 
   const handleButtonClick = (Link) => {
@@ -58,15 +60,27 @@ const Navbar = () => {
           <span className={`text-${activeButton === 'workshops' ? 'white' : '[#C778DD]'}`}>#</span>
           <span className={`text-${activeButton === 'workshops' ? '[#C778DD]' : 'white'}`}>workshops</span>
         </Link>
-        <Link
-          to="/login"
-          className={`text-white flex items-center ${activeButton === 'login' ? 'border-b-2 border-purple-300' : ''
-            }`}
-          onClick={() => handleButtonClick('login')}
-        >
-          <span className={`text-${activeButton === 'login' ? 'white' : '[#C778DD]'}`}>#</span>
-          <span className={`text-${activeButton === 'login' ? '[#C778DD]' : 'white'}`}>login</span>
-        </Link>
+        {!auth ? (
+          <Link
+            to="/login"
+            className={`text-white flex items-center ${activeButton === 'login' ? 'border-b-2 border-purple-300' : ''
+              }`}
+            onClick={() => handleButtonClick('login')}
+          >
+            <span className={`text-${activeButton === 'login' ? 'white' : '[#C778DD]'}`}>#</span>
+            <span className={`text-${activeButton === 'login' ? '[#C778DD]' : 'white'}`}>login</span>
+          </Link>
+        ) : (
+          <Link
+            to="/profile"
+            className={`text-white flex items-center ${activeButton === 'profile' ? 'border-b-2 border-purple-300' : ''
+              }`}
+            onClick={() => handleButtonClick('profile')}
+          >
+            <span className={`text-${activeButton === 'profile' ? 'white' : '[#C778DD]'}`}>#</span>
+            <span className={`text-${activeButton === 'profile' ? '[#C778DD]' : 'white'}`}>profile</span>
+          </Link>
+        )}
       </div>
 
       {/* Navigation for smaller screens */}

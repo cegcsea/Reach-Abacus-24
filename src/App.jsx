@@ -4,9 +4,8 @@ import { NavBar, Footer, ScrollToTop, Loader } from './components';
 import {
   Home, Events, SingleEvent,
   Workshop, Login, SignUpDetails,
-  About,
-  SingleWorkshop,
-  Profile
+  About, ForgotPassWord, Profile,
+  SingleWorkshop, ForgotPassWordDetails
 } from './pages';
 
 import { LoaderContext } from './context/LoaderContext';
@@ -36,7 +35,9 @@ export const App = () => {
           <Route path='/about' element={<About />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/signup/details' element={<SignUpDetails />} />
+          <Route path='/register/:email/:token' element={<SignUpDetails />} />
+          <Route path='/reset-password' element={<ForgotPassWord />} />
+          <Route path='/reset-password/:id/:token' element={<ForgotPassWordDetails />} />
         </Routes>
       </div>
       <Footer />

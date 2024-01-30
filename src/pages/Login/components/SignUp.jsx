@@ -1,8 +1,16 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 
 function SignUp() {
-    const navigate = useNavigate();
+    const { handleAbacusRegisterLink } = useContext(AuthContext)
+    const [email, setEmail] = useState("");
+
+    const handleEmailChange = (e) => setEmail(e.target.value);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleAbacusRegisterLink({ email });
+    }
 
     return (
         <>
@@ -12,13 +20,12 @@ function SignUp() {
                 <span className='text-[#C778DD]'>&#62;</span>
             </div>
             <p className='text-base text-gray-300 text-center'>After registering your mail, a verification link will be sent to your email account.</p>
-            <form className='flex flex-col gap-5' action="#">
-                <input type='email' name='email' placeholder='Email' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                    style={{ width: '100%', backgroundColor: "#30343a" }} required />
-                    
+            <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
+                <input type='email' name='email' placeholder='Email' value={email} className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                    style={{ width: '100%', backgroundColor: "#30343a" }} onChange={handleEmailChange} required />
+
                 <div className="self-center">
-                    <button type='submit' className="py-2 px-4 text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150"
-                    onClick={()=>navigate('/signup/details')}>
+                    <button type='submit' className="py-2 px-4 text-white border border-[#98dd78] hover:bg-[#98dd7836] duration-150">
                         Register {"<"}~{">"}
                     </button>
                 </div>
