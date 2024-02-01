@@ -6,11 +6,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { LoaderProvider } from "./context/LoaderContext";
 import { Toaster as HotToaster } from "react-hot-toast";
 import { AuthProvider } from './context/AuthContext';
+import { ScrollToTop } from './components';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
+      <ScrollToTop />
       <HotToaster duration={2000}
         toastOptions={{
           success: {

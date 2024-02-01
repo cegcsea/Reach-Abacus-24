@@ -10,6 +10,11 @@ import {
     resetForgottenPassword
 } from '../api/auth';
 
+import {
+    eventRegister,
+    getRegisteredEvents
+} from '../api/user';
+
 import { toast } from "react-hot-toast";
 import Cookies from "js-cookie";
 
@@ -22,6 +27,7 @@ const AuthProvider = ({ children }) => {
 
     const [auth, setAuth] = useState(false);
     const [user, setUser] = useState({});
+    const [userEvents, setUserEvents] = useState([]);
 
     const handleAbacusLogin = (data) => {
         toast.promise(
@@ -109,6 +115,22 @@ const AuthProvider = ({ children }) => {
         );
     }
 
+    const handleEventRegister = (data) => {
+        toast.promise(
+            eventRegister(data),
+            {
+                loading: "Registering for the event...",
+                success: (data) => {
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
     const refreshAuth = () => {
         const token = Cookies.get("token");
         if (token) {
@@ -116,6 +138,12 @@ const AuthProvider = ({ children }) => {
                 .then((data) => {
                     setAuth(true);
                     setUser(data.user);
+                })
+                .catch((error) => {
+                });
+            getRegisteredEvents()
+                .then((data) => {
+                    setUserEvents(data.events.events);
                 })
                 .catch((error) => {
                 });
@@ -128,6 +156,7 @@ const AuthProvider = ({ children }) => {
     const handleLogout = () => {
         Cookies.remove("token");
         setAuth(false);
+        setUserEvents([]);
         setUser({});
     };
 
@@ -140,12 +169,14 @@ const AuthProvider = ({ children }) => {
             value={{
                 auth, setAuth,
                 user, setUser,
+                userEvents, setUserEvents,
                 handleAbacusLogin,
                 handleLogout,
                 handleAbacusRegisterLink,
                 handleAbacusRegister,
                 handleForgotPasswordLink,
                 handleResetForgottenPassword,
+                handleEventRegister
             }}
         >
             {children}
