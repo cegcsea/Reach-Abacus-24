@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { events } from '../../constants';
 import { LoaderContext } from '../../context/LoaderContext';
 import { Loader } from '../../components';
@@ -9,6 +9,7 @@ function Event() {
     const { isLoading } = useContext(LoaderContext);
     const { handleEventRegister, auth, userEvents } = useContext(AuthContext);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     if (isLoading) {
         return <Loader />;
@@ -44,12 +45,19 @@ function Event() {
                     <p className='text-white text-lg text-justify'>
                         {selectedEvent.body}
                     </p>
-                    {(auth && !isRegistered) ? (
+                    {(auth && !isRegistered) && (
                         <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
                             onClick={handleRegister}>
-                            {auth ? "Register" : "Login to Register"} {'<'}~{'>'}
+                            Register{'<'}~{'>'}
                         </button>
-                    ) : (
+                    )}
+                    {!auth && (
+                        <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
+                        onClick={()=>navigate('/login')}>
+                            Login to Register{'<'}~{'>'}
+                        </button>
+                    )}
+                    {isRegistered && (
                         <p className='p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800'>
                             <span className="text-lime-400">/*</span>
                             &nbsp;Already registered for this event!&nbsp;
