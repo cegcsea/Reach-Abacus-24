@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 import devrloper from '../../assets/Hero/profile.png';
 
 function Profile() {
-    const { user } = useContext(AuthContext);
+    const { user, handleLogout } = useContext(AuthContext);
     const { isLoading } = useContext(LoaderContext);
 
     if (isLoading) {
@@ -44,9 +44,15 @@ function Profile() {
                             {accomodationContent}
                         </p>
                     </div>
-                    <button className='my-10 tracking-wider self-center w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
-                        Update Profile {'<'}~{'>'}
-                    </button>
+                    <div className='w-full flex justify-center items-center gap-5'>
+                        <button className='my-10 tracking-wider self-center w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+                            Update Profile {'<'}~{'>'}
+                        </button>
+                        <button className='my-10 tracking-wider self-center w-fit border border-[#98dd78] hover:bg-[#98dd7836] px-4 py-2 text-white duration-150'
+                            onClick={() => handleLogout()}>
+                            Logout {'<'}~{'>'}
+                        </button>
+                    </div>
                 </div>
                 <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>
                     <img src={devrloper} className='w-full sm:w-[70%] object-contain' />

@@ -5,7 +5,8 @@ import {
     Home, Events, SingleEvent,
     Workshop, Login, SignUpDetails,
     About, ForgotPassWord, Profile,
-    SingleWorkshop, ForgotPassWordDetails
+    SingleWorkshop, ForgotPassWordDetails,
+    WorkshopPayment, WorkshopUploadScreenshot
 } from '../pages';
 
 import ProtectedRoute from './ProtectedRoutes';
@@ -16,6 +17,8 @@ function AllRoutes() {
             <Route path='/' element={<Home />} />
             <Route path='/workshops' element={<Workshop />} />
             <Route path='/workshops/:id' element={<SingleWorkshop />} />
+            <Route path='/workshops/:id/payment' element={<WorkshopPayment />} />
+            <Route path='/workshops/payment/:transactionId' element={<WorkshopUploadScreenshot />} />
             <Route path='/events' element={<Events />} />
             <Route path='/events/:id' element={<SingleEvent />} />
             <Route path='/about' element={<About />} />

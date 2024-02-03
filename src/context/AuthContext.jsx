@@ -12,7 +12,11 @@ import {
 
 import {
     eventRegister,
-    getRegisteredEvents
+    getRegisteredEvents,
+    workshopRegister,
+    getRegisteredWorkshops,
+    verifyWorkshopPayment,
+    verifyWorkshopPayScreenshot
 } from '../api/user';
 
 import { toast } from "react-hot-toast";
@@ -28,6 +32,7 @@ const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(false);
     const [user, setUser] = useState({});
     const [userEvents, setUserEvents] = useState([]);
+    const [userWorkshops, setUserWorkshops] = useState([]);
 
     const handleAbacusLogin = (data) => {
         toast.promise(
@@ -131,6 +136,55 @@ const AuthProvider = ({ children }) => {
         );
     }
 
+    const handleWorkshopRegister = (data) => {
+        toast.promise(
+            workshopRegister(data),
+            {
+                loading: "Registering for the workshop...",
+                success: (data) => {
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
+    const handleVerifyWorkshopScreenshot = (data) => {
+        toast.promise(
+            verifyWorkshopPayScreenshot(data),
+            {
+                loading: "Uploading...",
+                success: (data) => {
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
+    const handleVerifyWorkshopPayment = (data) => {
+        toast.promise(
+            verifyWorkshopPayment(data),
+            {
+                loading: "Verifying...",
+                success: (data) => {
+                    navigate(`/workshops/payment/${data.payment.id}`)
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
     const refreshAuth = () => {
         const token = Cookies.get("token");
         if (token) {
@@ -147,6 +201,12 @@ const AuthProvider = ({ children }) => {
                 })
                 .catch((error) => {
                 });
+            getRegisteredWorkshops()
+                .then((data) => {
+                    setUserWorkshops(data.workshops.workshops);
+                })
+                .catch((error) => {
+                });
         } else {
             setAuth(false);
             setUser({});
@@ -158,6 +218,7 @@ const AuthProvider = ({ children }) => {
         setAuth(false);
         setUserEvents([]);
         setUser({});
+        setUserWorkshops([]);
     };
 
     useEffect(() => {
@@ -170,13 +231,17 @@ const AuthProvider = ({ children }) => {
                 auth, setAuth,
                 user, setUser,
                 userEvents, setUserEvents,
+                userWorkshops, setUserWorkshops,
                 handleAbacusLogin,
                 handleLogout,
                 handleAbacusRegisterLink,
                 handleAbacusRegister,
                 handleForgotPasswordLink,
                 handleResetForgottenPassword,
-                handleEventRegister
+                handleEventRegister,
+                handleWorkshopRegister,
+                handleVerifyWorkshopPayment,
+                handleVerifyWorkshopScreenshot
             }}
         >
             {children}

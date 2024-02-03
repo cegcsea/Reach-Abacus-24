@@ -11,6 +11,7 @@
 body {
   background-color: #292d33;
   font-family: 'Jost', sans-serif;
+  letter-spacing: 1px;
 }
 
 ::selection {

@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
-function Workshop_content({ workshop }) {
+function Workshop_content({ workshop, isRegistered }) {
+  const { handleWorkshopRegister, auth } = useContext(AuthContext);
+
+  const handleRegister = () => {
+    handleWorkshopRegister({ workshopId: workshop.code });
+  }
+
   return (
     <div className='px-5 pb-10 flex justify-center items-center sm:flex-row flex-col'>
       {/* First Column */}
@@ -29,9 +37,26 @@ function Workshop_content({ workshop }) {
             <p><span className='font-bold'>Pre-requisite: </span>{workshop.prerequistes}</p>
           </p>
         </div>
-        <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
-          Register {'<'}~{'>'}
-        </button>
+        {(auth && !isRegistered) && (
+          <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
+            onClick={handleRegister}>
+            Register {'<'}~{'>'}
+          </button>
+        )}
+        {isRegistered && (
+          <Link to={`/workshops/${workshop.code}/payment`}>
+            <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+              Pay Now {'<'}~{'>'}
+            </button>
+          </Link>
+        )}
+        {!auth && (
+          <Link to="/login">
+            <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+              Login to Register {'<'}~{'>'}
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

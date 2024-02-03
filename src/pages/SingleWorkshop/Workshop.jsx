@@ -5,9 +5,11 @@ import { workshops } from '../../constants';
 import { useParams } from "react-router-dom";
 import { LoaderContext } from '../../context/LoaderContext';
 import { Loader } from '../../components';
+import { AuthContext } from "../../context/AuthContext";
 
 const Workshop = () => {
   const { isLoading } = useContext(LoaderContext);
+  const { userWorkshops } = useContext(AuthContext);
   const { id } = useParams();
 
   if (isLoading) {
@@ -15,11 +17,12 @@ const Workshop = () => {
   }
 
   const workshop = workshops.find((event) => event.to === id);
+  const isRegistered = userWorkshops.some((event) => event.workshopId === workshop.code);
 
   return (
     <div className="bg-[#34363e]">
       <Header workshop={workshop} />
-      <Workshop_content workshop={workshop} />
+      <Workshop_content workshop={workshop} isRegistered={isRegistered} />
     </div>
   );
 };
