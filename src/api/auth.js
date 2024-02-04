@@ -13,7 +13,8 @@ const abacusLogin = async (data) => {
 
         return { ...responseData, message }
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -24,7 +25,8 @@ const getAbacusUser = async () => {
 
         return { user, message }
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -36,7 +38,8 @@ const getAbacusRegiserLink = async (data) => {
 
         return { link, message };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -44,11 +47,14 @@ const abacusRegister = async (data) => {
     try {
         const response = await api.post(`${url}/register/${data.email}/${data.token}`, data);
 
-        const { token, message } = response.data;
+        const { data: responseData, message } = response.data;
 
-        return { token, message }
+        if (responseData.token) Cookies.set("token", responseData.token);
+
+        return { ...responseData, message }
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -60,7 +66,8 @@ const getAbacusForgotPasswordLink = async (data) => {
 
         return { link, message };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -72,7 +79,8 @@ const resetForgottenPassword = async (data) => {
 
         return { message };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 

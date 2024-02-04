@@ -9,7 +9,8 @@ const getRegisteredEvents = async () => {
 
         return { events, message }
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -20,7 +21,8 @@ const getRegisteredWorkshops = async () => {
 
         return { workshops, message }
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -32,7 +34,8 @@ const eventRegister = async (data) => {
 
         return { message };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -44,7 +47,8 @@ const workshopRegister = async (data) => {
 
         return { message };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -56,7 +60,8 @@ const verifyWorkshopPayment = async (data) => {
 
         return { message, payment };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 
@@ -70,7 +75,8 @@ const verifyWorkshopPayScreenshot = async (data) => {
 
         return { message };
     } catch (err) {
-        return { error: err }
+        if (err.response) throw err.response.data.message;
+        throw err;
     }
 }
 

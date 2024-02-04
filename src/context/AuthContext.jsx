@@ -76,6 +76,7 @@ const AuthProvider = ({ children }) => {
                 loading: "Registering...",
                 success: (data) => {
                     setAuth(true);
+                    refreshAuth();
                     navigate(DEFAULT_REDIRECT_PATH);
                     return data.message;
                 },
