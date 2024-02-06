@@ -25,7 +25,7 @@ function Workshop_content({ workshop, isRegistered }) {
         <div className='flex items-center justify-left text-white'>
           <h1 className='sm:text-2xl text-lg'>
             <span className="text-[#C778DD] font-semibold">#</span>
-            <span className="text-white font-semibold">What_to_expext?</span>
+            <span className="text-white font-semibold">What_to_expect?</span>
           </h1>
           <div className="line w-2/3 h-px bg-[#C778DD]"></div>
         </div>
@@ -38,10 +38,11 @@ function Workshop_content({ workshop, isRegistered }) {
           </p>
         </div>
         {(auth && !isRegistered) && (
-          <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
-            onClick={handleRegister}>
-            Register {'<'}~{'>'}
-          </button>
+          <Link to={`/workshops/${workshop.code}/payment`}>
+            <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+              Register {'<'}~{'>'}
+            </button>
+          </Link>
         )}
         {isRegistered && (
           <Link to={`/workshops/${workshop.code}/payment`}>

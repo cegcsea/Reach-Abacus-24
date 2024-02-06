@@ -153,30 +153,21 @@ const AuthProvider = ({ children }) => {
         );
     }
 
-    const handleVerifyWorkshopScreenshot = (data) => {
-        toast.promise(
-            verifyWorkshopPayScreenshot(data),
-            {
-                loading: "Uploading...",
-                success: (data) => {
-                    return data.message;
-                },
-
-                error: (err) => {
-                    return typeof err == "object" ? err.message : err;
-                },
-            }
-        );
-    }
-
     const handleVerifyWorkshopPayment = (data) => {
         toast.promise(
-            verifyWorkshopPayment(data),
+            verifyWorkshopPayment({
+                workshopId: data.workshopId,
+                paymentMobile: data.paymentMobile,
+                transactionId: data.transactionId
+            })
+            .then((responsesData) => {
+                verifyWorkshopPayScreenshot({ payment :responsesData.payment, formData: data.formData });
+            }),
             {
                 loading: "Verifying...",
-                success: (data) => {
-                    navigate(`/workshops/payment/${data.payment.id}`)
-                    return data.message;
+                success: (screenshotData) => {
+                    navigate(`/workshops`)
+                    return "Payment Details will be verified shortly!";
                 },
 
                 error: (err) => {
@@ -242,7 +233,6 @@ const AuthProvider = ({ children }) => {
                 handleEventRegister,
                 handleWorkshopRegister,
                 handleVerifyWorkshopPayment,
-                handleVerifyWorkshopScreenshot
             }}
         >
             {children}

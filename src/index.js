@@ -21,6 +21,7 @@ root.render(
               border: "1px solid rgb(76, 175, 80)",
               backdropFilter: "blur(10px)",
               color: "white",
+              textAlign: "center"
             },
           },
           error: {
@@ -29,6 +30,7 @@ root.render(
               border: "1px solid rgb(244, 67, 54)",
               backdropFilter: "blur(10px)",
               color: "white",
+              textAlign: "center"
             },
           },
           loading: {

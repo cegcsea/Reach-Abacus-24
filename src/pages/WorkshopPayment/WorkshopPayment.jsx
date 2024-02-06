@@ -10,6 +10,8 @@ function WorkshopPayment() {
     const { handleVerifyWorkshopPayment } = useContext(AuthContext);
     const { id } = useParams();
     const [formData, setFormData] = useState({ transactionId: "", paymentMobile: "" });
+    const [file, setFiles] = useState(null);
+    const [fileName, setFileName] = useState('Get your payment screenshot...');
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -30,6 +32,11 @@ function WorkshopPayment() {
         return <Loader />;
     }
 
+    const handleFileChange = (event) => {
+        setFileName(event.target.files[0].name);
+        setFiles(event.target.files[0]);
+    };
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -37,7 +44,14 @@ function WorkshopPayment() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleVerifyWorkshopPayment({ workshopId: parseInt(id), ...formData })
+        const formReqData = new FormData();
+        formReqData.append('paymentScreenshot', file);
+        handleVerifyWorkshopPayment({
+            workshopId: parseInt(id),
+            paymentMobile: formData.paymentMobile,
+            transactionId: formData.transactionId,
+            formData: formReqData,
+        });
     }
 
     return (
@@ -65,6 +79,16 @@ function WorkshopPayment() {
                     <input type='text' name='paymentMobile' placeholder='Payment Mobile No.' onChange={handleChange} value={formData.paymentMobile}
                         className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} required />
+
+                    <div>
+                        <label for='screenshot' className='flex flex-row w-full justify-center items-center'>
+                            <div className="py-2 px-4 text-white border border-[#98dd78] hover:bg-[#98dd7836] duration-150">
+                                Upload
+                            </div>
+                            <p className='text-base border border-[#ABB2BF] text-gray-400 p-2'>{fileName.length > 30 ? fileName.slice(0, isMobile ? 17 : 25) + "..." : fileName}</p>
+                        </label>
+                        <input type='file' id='screenshot' name='paymentScreenshot' className='hidden' onChange={handleFileChange} />
+                    </div>
 
                     <div className="self-center">
                         <button type='submit' className="py-2 px-4 text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150">

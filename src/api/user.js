@@ -67,7 +67,7 @@ const verifyWorkshopPayment = async (data) => {
 
 const verifyWorkshopPayScreenshot = async (data) => {
     try {
-        const response = await api.post(`${url}/workshop-payment-screenshot/${data.workshopPaymentId}`, data.formData, {
+        const response = await api.post(`${url}/workshop-payment-screenshot/${data.payment.id}`, data.formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
         });
 
