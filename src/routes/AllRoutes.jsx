@@ -6,7 +6,8 @@ import {
     Workshop, Login, SignUpDetails,
     About, ForgotPassWord, Profile,
     SingleWorkshop, ForgotPassWordDetails,
-    WorkshopPayment,
+    WorkshopPayment, UpdateProfile,
+    Dashboard, Sponsor
 } from '../pages';
 
 import ProtectedRoute from './ProtectedRoutes';
@@ -21,12 +22,15 @@ function AllRoutes() {
             <Route path='/events' element={<Events />} />
             <Route path='/events/:id' element={<SingleEvent />} />
             <Route path='/about' element={<About />} />
+            <Route path='/sponsors' element={<Sponsor />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register/:email/:token' element={<SignUpDetails />} />
             <Route path='/reset-password' element={<ForgotPassWord />} />
             <Route path='/reset-password/:id/:token' element={<ForgotPassWordDetails />} />
             <Route element={<ProtectedRoute />}>
+                <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/profile/update' element={<UpdateProfile />} />
             </Route>
         </Routes>
     )

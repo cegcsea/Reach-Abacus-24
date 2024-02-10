@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import image from '../../../assets/Reach/placement.svg';
+import { AuthContext } from '../../../context/AuthContext';
 
 function Session() {
+    const { handleWorkshopRegister } = useContext(AuthContext);
+
+    const handleRegister = (code) => {
+        handleWorkshopRegister({ workshopId: code });
+    }
+
     return (
         <div>
             <div className='p-5 sm:py-8 sm:px-10 flex gap-3 flex-col'>
@@ -36,7 +43,8 @@ function Session() {
                                 Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.
                             </p>
                         </div>
-                        <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'>
+                        <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'
+                            onClick={() => handleRegister(3)}>
                             Register {'<'}~{'>'}
                         </button>
                     </div>

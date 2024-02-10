@@ -12,10 +12,14 @@ const SignUpDetails = lazy(() => import('./Login/components/SignUpDetails'));
 const ForgotPassWord = lazy(() => import('./Login/components/ForgotPassWordLink'));
 const ForgotPassWordDetails = lazy(() => import('./Login/components/ForgotPasswordDetails'));
 const WorkshopPayment = lazy(() => import('./WorkshopPayment/WorkshopPayment'));
+const UpdateProfile = lazy(() => import('./Profile/components/UdateProfile'));
+const Dashboard = lazy(() => import('./Dashboard/Dashboard'));
+const Sponsor = lazy(() => import('./Sponsors/Sponsors'));
 
 export {
     Home, Events, SingleEvent, About, Profile,
     Workshop, Login, SignUpDetails, SingleWorkshop,
     ForgotPassWord, ForgotPassWordDetails,
-    WorkshopPayment, 
+    WorkshopPayment, UpdateProfile, Dashboard,
+    Sponsor
 }

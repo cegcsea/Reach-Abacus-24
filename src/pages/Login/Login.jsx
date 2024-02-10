@@ -30,13 +30,13 @@ function Login() {
     }
 
     return (
-        <div className="flex justify-between items-center gap-5 sm:px-0 px-4 py-10 bg-[#34363e] h-screen">
+        <div className="flex justify-between items-center gap-5 md:px-0 px-5 py-10 bg-[#34363e] h-screen">
             {!isMobile && (
                 <div className="w-[30%] flex justify-center items-center">
                     <img src={dots} alt="dots-bg" />
                 </div>
             )}
-            <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border sm:mt-7 border-[#ABB2BF] border-solid border-white-500 text-white p-5 sm:p-10 bg-[#282C33]">
+            <div className="querybox flex flex-col gap-7 w-full md:w-2/5 border md:mt-7 border-[#ABB2BF] border-solid border-white-500 text-white p-5 md:p-10 bg-[#282C33]">
                 <div className="flex justify-center items-center gap-6">
                     <div>
                         <button type="submit" className={`py-2 px-6 sm:text-base text-xs text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150

@@ -1,7 +1,11 @@
 import { DevCard } from "../../../../components";
 import { developersData } from '../../../../constants';
+import "swiper/css";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
-const Developers = () => {
+const Developers = ({ isMobile }) => {
     return (
         <>
             <div className="px-5 max-w-[1560px] mx-auto mt-20 py-10">
@@ -14,11 +18,21 @@ const Developers = () => {
                     </div>
                 </div>
                 <div className="flex flex-wrap justify-between gap-4 my-12">
-                    {developersData.map(({ img, title, disc }) => {
-                        return (
-                            <DevCard img={img} title={title} disc={disc} />
-                        );
-                    })}
+                    <Swiper
+                        slidesPerView={isMobile ? 1 : 3}
+                        centeredSlides={true}
+                        navigation={true}
+                        loop="true"
+                        spaceBetween={30}
+                        modules={[Navigation]}>
+                        {developersData.map(({ img, title, disc }) => {
+                            return (
+                                <SwiperSlide>
+                                    <DevCard img={img} title={title} disc={disc} />
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
                 </div>
             </div>
         </>

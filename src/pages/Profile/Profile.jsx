@@ -4,18 +4,18 @@ import { TbHanger } from "react-icons/tb";
 import { LoaderContext } from '../../context/LoaderContext';
 import { Loader } from '../../components';
 import { AuthContext } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 import devrloper from '../../assets/Hero/profile.png';
 
 function Profile() {
     const { user, handleLogout } = useContext(AuthContext);
     const { isLoading } = useContext(LoaderContext);
+    const navigate = useNavigate();
 
     if (isLoading) {
         return <Loader />;
     }
-
-    let accomodationContent = user.accomodation ? "Your accomodation will be available!" : "Seems like you don't need accomodation.";
 
     return (
         <div className='flex flex-col bg-[#34363e] px-5'>
@@ -41,17 +41,26 @@ function Profile() {
                         </p>
                         <p className='flex'>
                             <span className='text-red-400 text-xl md:text-3xl'><TbHanger /></span>&nbsp;
-                            {accomodationContent}
+                            You are currently in {user.hostCollege}, attending our marvellous REACH'24!
                         </p>
                     </div>
-                    <div className='w-full flex justify-center items-center gap-5'>
-                        <button className='my-10 tracking-wider self-center w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
-                            Update Profile {'<'}~{'>'}
-                        </button>
-                        <button className='my-10 tracking-wider self-center w-fit border border-[#98dd78] hover:bg-[#98dd7836] px-4 py-2 text-white duration-150'
-                            onClick={() => handleLogout()}>
-                            Logout {'<'}~{'>'}
-                        </button>
+                    <div className='w-full flex flex-col items-center gap-6'>
+                        <div className='flex justify-center items-center gap-8 w-full'>
+                            <button className='tracking-wider self-center w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
+                                onClick={() => navigate('/profile/update')}>
+                                Update Profile {'<'}~{'>'}
+                            </button>
+                            <button className='tracking-wider self-center w-fit sm:w-[30%] border border-[#98dd78] hover:bg-[#98dd7836] px-4 py-2 text-white duration-150'
+                                onClick={() => navigate('/dashboard')}>
+                                Dashboard {'<'}~{'>'}
+                            </button>
+                        </div>
+                        <div className='w-[50%]'>
+                            <button className='tracking-wider self-center w-full border border-[#dd7878] hover:bg-[#dd787836] px-4 py-2 text-white duration-150'
+                                onClick={() => handleLogout()}>
+                                Logout {'<'}~{'>'}
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className='w-full md:w-1/2 flex flex-col justify-center items-center'>

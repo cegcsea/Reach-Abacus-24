@@ -4,6 +4,34 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Jost:wght@100;200;300;400;500;600;700;800&display=swap');
 
+:root {
+  --swiper-navigation-size: 20px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.65);
+  transition: all 300ms;
+  border-radius: 50%;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+@media(max-width: 465px) {
+  :root {
+    --swiper-navigation-size: 12px !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    padding: 0.85rem;
+  }
+}
+
 .bg-navbar {
   background-color: #292d33;
 }
@@ -12,6 +40,7 @@ body {
   background-color: #292d33;
   font-family: 'Jost', sans-serif;
   letter-spacing: 1px;
+  scroll-behavior: smooth;
 }
 
 ::selection {

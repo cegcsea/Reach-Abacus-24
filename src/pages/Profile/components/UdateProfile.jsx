@@ -7,22 +7,15 @@ import { Loader } from '../../../components';
 import dots from '../../../assets/Events/sidebg.png';
 import { useParams } from 'react-router-dom';
 
-function SignUpDetails() {
-    const { email, token } = useParams();
+function UpdateProfile() {
     const { isLoading } = useContext(LoaderContext);
-    const { handleAbacusRegister } = useContext(AuthContext);
+    const { user, handleUpdateProfile } = useContext(AuthContext);
     const [isMobile, setIsMobile] = useState(false);
-    const [selection, setSelection] = useState(null);
     const [selectionyear, setSelectionyear] = useState(null);
     const [formData, setFormData] = useState({
-        name: "", college: "", hostCollege: "",
-        dept: "", year: "", mobile: "", password: "",
+        name: user.name, college: user.college,
+        dept: user.dept, year: user.year, mobile: user.mobile
     });
-
-    const optionsHostCollege = [
-        { label: 'Government College of Technology', value: 'Government College of Technology' },
-        { label: 'PSNA College of Engineering and Technology', value: 'PSNA College of Engineering and Technology' },
-    ];
 
     const optionsYear = [
         { label: 'First year', value: '1' },
@@ -31,10 +24,6 @@ function SignUpDetails() {
         { label: 'Fourth year', value: '4' },
         { label: 'Fifth year', value: '5' },
     ];
-
-    const handleSelect = (option) => {
-        setSelection(option)
-    }
 
     const handleSelectYear = (option) => {
         setSelectionyear(option)
@@ -47,16 +36,12 @@ function SignUpDetails() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        handleAbacusRegister({
+        handleUpdateProfile({
             name: formData.name,
-            email: email,
-            token: token,
             college: formData.college,
-            hostCollege: selection.value,
             dept: formData.dept,
             year: parseInt(selectionyear.value),
             mobile: formData.mobile,
-            password: formData.password,
         });
     }
 
@@ -98,22 +83,17 @@ function SignUpDetails() {
                     <input type='text' name='college' placeholder='College' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.college} onChange={handleChange} required />
 
-                    <Dropdown options={optionsHostCollege} value={selection} onChange={handleSelect} selectLabel="Host College" />
-
                     <input type='text' name='dept' placeholder='Department' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.dept} onChange={handleChange} required />
 
-                    <Dropdown options={optionsYear} value={selectionyear} onChange={handleSelectYear} selectLabel="Year" />
+                    <Dropdown options={optionsYear} value={selectionyear} onChange={handleSelectYear} selectLabel={'Update your year'} />
 
                     <input type='text' name='mobile' placeholder='Mobile' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.mobile} onChange={handleChange} required />
 
-                    <input type='password' name='password' placeholder='Password' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.password} onChange={handleChange} required />
-
                     <div className="self-center">
                         <button type='submit' className="py-2 px-4 text-white border border-[#98dd78] hover:bg-[#98dd7836] duration-150">
-                            Register {"<"}~{">"}
+                            Update {"<"}~{">"}
                         </button>
                     </div>
                 </form>
@@ -127,4 +107,4 @@ function SignUpDetails() {
     )
 }
 
-export default SignUpDetails;
+export default UpdateProfile;

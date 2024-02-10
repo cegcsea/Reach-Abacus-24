@@ -30,6 +30,19 @@ const getAbacusUser = async () => {
     }
 }
 
+const updateAbacusUser = async(data) => {
+    try {
+        const response = await api.put(`${url}/update-profile`, data);
+
+        const { message } = response.data;
+
+        return { message };
+    } catch (err) {
+        if (err.response) throw err.response.data.message;
+        throw err;
+    }
+}
+
 const getAbacusRegiserLink = async (data) => {
     try {
         const response = await api.post(`${url}/get-registration-link`, data);
@@ -90,5 +103,6 @@ export {
     getAbacusRegiserLink,
     abacusRegister,
     getAbacusForgotPasswordLink,
-    resetForgottenPassword
+    resetForgottenPassword,
+    updateAbacusUser
 }

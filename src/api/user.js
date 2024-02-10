@@ -80,11 +80,25 @@ const verifyWorkshopPayScreenshot = async (data) => {
     }
 }
 
+const submitQuery = async (data) => {
+    try {
+        const response = await api.post(`${url}/post-query`, data);
+
+        const { message } = response.data;
+
+        return { message };
+    } catch (err) {
+        if (err.response) throw err.response.data.message;
+        throw err;
+    }
+}
+
 export {
     eventRegister,
     getRegisteredEvents,
     workshopRegister,
     getRegisteredWorkshops,
     verifyWorkshopPayment,
-    verifyWorkshopPayScreenshot
+    verifyWorkshopPayScreenshot,
+    submitQuery
 }

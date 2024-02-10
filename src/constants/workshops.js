@@ -2,7 +2,7 @@ import MERN from '../assets/Reach/MERN.png';
 
 export const workshops = [
     {
-        title: "MERN_Stack_Development",
+        title: "MERN Stack Development",
         to: "mernstackdev",
         image: MERN,
         code: 1,
@@ -10,7 +10,7 @@ export const workshops = [
         prerequistes: "Basics of HTML, CSS & JS.",
     },
     {
-        title: "Introduction_to_Machine_Learning_with_Python",
+        title: "Introduction to Machine Learning with Python",
         to: "mlusingpython",
         image: MERN,
         code: 2,

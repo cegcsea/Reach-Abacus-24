@@ -3,7 +3,7 @@ import React from 'react';
 const DevCard = ({ img, title, disc }) => {
     return (
         <>
-            <div className="border mx-auto w-[90%] md:w-[48%] lg:w-[30%] border-[#ABB2BF] p-0">
+            <div className="border md:min-w-1/3 min-w-full border-[#ABB2BF] p-0">
                 <div className='flex flex-col hover:bg-[#24272d93] transition-all cursor-pointer'>
                     <div className="px-6 pt-6">
                         <img className=" w-full" src={img} alt="" />

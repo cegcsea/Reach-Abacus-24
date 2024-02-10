@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
 import { Link } from 'react-router-dom';
+import { FaInfo } from 'react-icons/fa';
 
 function Workshop_content({ workshop, isRegistered }) {
   const { handleWorkshopRegister, auth } = useContext(AuthContext);
@@ -58,6 +59,11 @@ function Workshop_content({ workshop, isRegistered }) {
             </button>
           </Link>
         )}
+        <p className='flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl'>
+          <span className='text-white bg-red-400 p-1 rounded-full'>
+            <FaInfo />
+          </span>
+          Your payment will be reflected within 2 business days!</p>
       </div>
     </div>
   );

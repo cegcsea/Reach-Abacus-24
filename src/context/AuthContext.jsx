@@ -7,7 +7,8 @@ import {
     getAbacusRegiserLink,
     abacusRegister,
     getAbacusForgotPasswordLink,
-    resetForgottenPassword
+    resetForgottenPassword,
+    updateAbacusUser
 } from '../api/auth';
 
 import {
@@ -16,7 +17,8 @@ import {
     workshopRegister,
     getRegisteredWorkshops,
     verifyWorkshopPayment,
-    verifyWorkshopPayScreenshot
+    verifyWorkshopPayScreenshot,
+    submitQuery
 } from '../api/user';
 
 import { toast } from "react-hot-toast";
@@ -104,6 +106,23 @@ const AuthProvider = ({ children }) => {
         );
     }
 
+    const handleUpdateProfile = (data) => {
+        toast.promise(
+            updateAbacusUser(data),
+            {
+                loading: "Updating details...",
+                success: (data) => {
+                    navigate('/profile');
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
     const handleResetForgottenPassword = (data) => {
         toast.promise(
             resetForgottenPassword(data),
@@ -111,6 +130,22 @@ const AuthProvider = ({ children }) => {
                 loading: "Resetting Password...",
                 success: (data) => {
                     navigate('/login');
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
+    const handleSubmitQuery = async (data) => {
+        toast.promise(
+            submitQuery(data),
+            {
+                loading: "Submiting your query...",
+                success: (data) => {
                     return data.message;
                 },
 
@@ -160,9 +195,9 @@ const AuthProvider = ({ children }) => {
                 paymentMobile: data.paymentMobile,
                 transactionId: data.transactionId
             })
-            .then((responsesData) => {
-                verifyWorkshopPayScreenshot({ payment :responsesData.payment, formData: data.formData });
-            }),
+                .then((responsesData) => {
+                    verifyWorkshopPayScreenshot({ payment: responsesData.payment, formData: data.formData });
+                }),
             {
                 loading: "Verifying...",
                 success: (screenshotData) => {
@@ -184,18 +219,13 @@ const AuthProvider = ({ children }) => {
                 .then((data) => {
                     setAuth(true);
                     setUser(data.user);
+                    setUserWorkshops(data.user.workshopPayments)
                 })
                 .catch((error) => {
                 });
             getRegisteredEvents()
                 .then((data) => {
                     setUserEvents(data.events.events);
-                })
-                .catch((error) => {
-                });
-            getRegisteredWorkshops()
-                .then((data) => {
-                    setUserWorkshops(data.workshops.workshops);
                 })
                 .catch((error) => {
                 });
@@ -233,6 +263,8 @@ const AuthProvider = ({ children }) => {
                 handleEventRegister,
                 handleWorkshopRegister,
                 handleVerifyWorkshopPayment,
+                handleUpdateProfile,
+                handleSubmitQuery
             }}
         >
             {children}

@@ -1,9 +1,52 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { contactsData } from '../../constants';
 import PhoneCard from '../PhoneCard/Phone';
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { CiLinkedin } from "react-icons/ci";
+import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
+
+const QueryForm = () => {
+    const { handleSubmitQuery, auth, user } = useContext(AuthContext);
+    const [formData, setFormData] = useState({
+        name: "", email: "", title: "", message: ""
+    });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleSubmitQuery({ ...formData, email: auth ? user.email : formData.email });
+        setFormData({
+            name: "", email: "", title: "", message: ""
+        });
+    }
+
+    return (
+        <form className='flex flex-col space-y-4 py-10' onSubmit={handleSubmit}>
+            <input type='text' name='name' placeholder='Name' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.name} onChange={handleChange} required />
+            {!auth && (
+                <input type='email' name='email' placeholder='Email' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                    style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.email} onChange={handleChange} required />
+            )}
+            <input type='text' name='title' placeholder='Title' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.title} onChange={handleChange} required />
+            <textarea placeholder='Message' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                style={{ width: '100%', backgroundColor: "#30343a", resize: 'none' }} rows={4} cols={15} name='message'
+                value={formData.message} onChange={handleChange} required></textarea>
+            <div className="">
+                <button type='submit' className=" py-2 px-4 text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
+                    Send {"<"}~{">"}
+                </button>
+            </div>
+        </form>
+    )
+}
 
 const Footer = () => {
     return (
@@ -30,37 +73,34 @@ const Footer = () => {
                     <div className="mediabox  text-2xl text-white flex flex-col justify-center items-center mt-4">
                         <p className=''>Media</p>
                         <div className="icons flex flex-wrap pt-5 text-[#ABB2BF]">
-                            <FaInstagram size={35} className='mr-5' />
-                            <FaFacebook size={35} className='mr-5' />
-                            <CiLinkedin size={40} className='mr-5' />
+                            <Link to={'https://www.instagram.com/csea_ceg/'} target='_blank'>
+                                <FaInstagram size={35} className='mr-5 hover:text-pink-500 transition-all' />
+                            </Link>
+                            <Link to={'https://www.facebook.com/csea.ceg'} target='_blank'>
+                                <FaFacebook size={35} className='mr-5 hover:text-blue-500 transition-all' />
+                            </Link>
+                            <Link to={'https://www.linkedin.com/company/csea-ceg/'} target='_blank'>
+                                <CiLinkedin size={40} className='mr-5 hover:text-blue-800 transition-all' />
+                            </Link>
                         </div>
                     </div>
                 </div>
-                <div className="phonebox border border-[#ABB2BF] h-full mb-14 px-7 pb-2 mt-7">
-                    <div className='phonehead text-2xl text-white pt-6 pb-3'>Phone</div>
-                    {contactsData.map(({ name, phone }) => {
-                        return (
-                            <PhoneCard
-                                name={name}
-                                phone={phone}
-                            />
-                        );
-                    })
-                    }
+                <div className="phonebox border border-[#ABB2BF] h-full mb-14 p-6 mt-7">
+                    <div className='phonehead text-2xl text-white pb-3'>Phone</div>
+                    <div className='flex flex-col gap-3'>
+                        {contactsData.map(({ name, phone }) => {
+                            return (
+                                <PhoneCard
+                                    name={name}
+                                    phone={phone}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
                 <div className="querybox border w-[97%] md:w-[45%] lg:w-[45%] xl:w-[30%] mt-7 border-[#ABB2BF] border-solid border-white-500 h-full text-white p-10">
                     <div className='text-2xl'>Mail</div>
-                    <form className='flex flex-col space-y-4 py-10' action="#">
-                        <input type='text' placeholder='Name' className='p-2 outline-none border border-[#ABB2BF] text-[18px]' style={{ width: '100%', backgroundColor: "#30343a" }}></input>
-                        <input type='email' placeholder='Email' className='p-2 outline-none border border-[#ABB2BF] text-[18px]' style={{ width: '100%', backgroundColor: "#30343a" }}></input>
-                        <input type='text' placeholder='Title' className='p-2 outline-none border border-[#ABB2BF] text-[18px]' style={{ width: '100%', backgroundColor: "#30343a" }}></input>
-                        <textarea placeholder='Message' className='p-2 outline-none border border-[#ABB2BF] text-[18px]' style={{ width: '100%', backgroundColor: "#30343a", resize: 'none' }} rows={4} cols={15}></textarea>
-                        <div className="">
-                            <button type='submit' className=" py-2 px-4 text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
-                                Send {"<"}~{">"}
-                            </button>
-                        </div>
-                    </form>
+                    <QueryForm />
                 </div>
             </div>
             <div className='footerline flex items-center justify-center text-[#ABB2BF] p-4'>&copy; Copyright 2024 Abacus . All right reserved</div>
@@ -68,4 +108,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;
