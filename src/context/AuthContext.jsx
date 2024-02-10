@@ -112,6 +112,7 @@ const AuthProvider = ({ children }) => {
             {
                 loading: "Updating details...",
                 success: (data) => {
+                    refreshAuth();
                     navigate('/profile');
                     return data.message;
                 },
@@ -162,6 +163,7 @@ const AuthProvider = ({ children }) => {
             {
                 loading: "Registering for the event...",
                 success: (data) => {
+                    refreshAuth();
                     return data.message;
                 },
 
@@ -178,6 +180,7 @@ const AuthProvider = ({ children }) => {
             {
                 loading: "Registering for the workshop...",
                 success: (data) => {
+                    refreshAuth();
                     return data.message;
                 },
 
@@ -201,7 +204,8 @@ const AuthProvider = ({ children }) => {
             {
                 loading: "Verifying...",
                 success: (screenshotData) => {
-                    navigate(`/workshops`)
+                    refreshAuth();
+                    navigate(`/workshops`);
                     return "Payment Details will be verified shortly!";
                 },
 

@@ -2,23 +2,27 @@ import React from 'react';
 
 import Banner from "../../../../assets/Reach/Reach_logo.png";
 import Logo from "../../../../assets/Hero/abacus_logo.png"
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className="px-5 flex items-center justify-between sm:flex-row flex-col">
                 <div className="w-full sm:w-1/2 p-5">
                     <h1 className="font-semibold text-[32px] text-white mb-3">
-                        Abacus <span className="text-[#C778DD]">
+                        REACH '24 <span className="text-[#C778DD]">
                             “Ideas Converge and Possibilities Unfold”
                         </span>
                     </h1>
                     <p className="text-[#ABB2BF] my-6">
                         Navigating the Future, One Innovation at a Time
                     </p>
-                    <button className="text-white font-medium py-2 px-4 border duration-200 border-[#C778DD] hover:bg-[#C778DD33]">
-                        Contact Us!!
-                    </button>
+                    <a href='#contact'>
+                        <button className="text-white font-medium py-2 px-4 border duration-200 border-[#C778DD] hover:bg-[#C778DD33]">
+                            Contact Us!!
+                        </button>
+                    </a>
                 </div>
                 <div className="w-full sm:w-1/2">
                     <div className="">

@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaInfo } from 'react-icons/fa';
 
 function Workshop_content({ workshop, isRegistered }) {
-  const { handleWorkshopRegister, auth } = useContext(AuthContext);
-
-  const handleRegister = () => {
-    handleWorkshopRegister({ workshopId: workshop.code });
-  }
+  const { auth } = useContext(AuthContext);
 
   return (
     <div className='px-5 pb-10 flex justify-center items-center sm:flex-row flex-col'>
@@ -45,12 +41,10 @@ function Workshop_content({ workshop, isRegistered }) {
             </button>
           </Link>
         )}
-        {isRegistered && (
-          <Link to={`/workshops/${workshop.code}/payment`}>
-            <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
-              Pay Now {'<'}~{'>'}
-            </button>
-          </Link>
+        {(auth && isRegistered) && (
+          <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+            Paid for the workshop {'<'}~{'>'}
+          </button>
         )}
         {!auth && (
           <Link to="/login">
@@ -59,11 +53,14 @@ function Workshop_content({ workshop, isRegistered }) {
             </button>
           </Link>
         )}
-        <p className='flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl'>
-          <span className='text-white bg-red-400 p-1 rounded-full'>
-            <FaInfo />
-          </span>
-          Your payment will be reflected within 2 business days!</p>
+        {(auth && isRegistered) && (
+          <p className='flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl'>
+            <span className='text-white bg-red-400 p-1 rounded-full'>
+              <FaInfo />
+            </span>
+            Your payment will be reflected within 2 business days!
+          </p>
+        )}
       </div>
     </div>
   );

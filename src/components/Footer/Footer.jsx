@@ -20,7 +20,7 @@ const QueryForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleSubmitQuery({ ...formData, email: auth ? user.email : formData.email });
+        handleSubmitQuery({ ...formData, email: auth ? user.email : formData.email, name: auth ? user.name : formData.name });
         setFormData({
             name: "", email: "", title: "", message: ""
         });
@@ -28,11 +28,13 @@ const QueryForm = () => {
 
     return (
         <form className='flex flex-col space-y-4 py-10' onSubmit={handleSubmit}>
-            <input type='text' name='name' placeholder='Name' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.name} onChange={handleChange} required />
             {!auth && (
-                <input type='email' name='email' placeholder='Email' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                    style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.email} onChange={handleChange} required />
+                <>
+                    <input type='text' name='name' placeholder='Name' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.name} onChange={handleChange} required />
+                    <input type='email' name='email' placeholder='Email' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
+                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.email} onChange={handleChange} required />
+                </>
             )}
             <input type='text' name='title' placeholder='Title' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                 style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.title} onChange={handleChange} required />
@@ -51,6 +53,7 @@ const QueryForm = () => {
 const Footer = () => {
     return (
         <div className='footer border border-t-1 border-x-0 border-b-0 border-[#ABB2BF] pt-6 bg-[#292d33]'>
+            <span id='contact'></span>
             <div className='head flex items-center pl-4 text-white text-2xl'>
                 <h1>
                     <span className="text-[#C778DD] font-bold">#</span>
@@ -99,7 +102,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="querybox border w-[97%] md:w-[45%] lg:w-[45%] xl:w-[30%] mt-7 border-[#ABB2BF] border-solid border-white-500 h-full text-white p-10">
-                    <div className='text-2xl'>Mail</div>
+                    <div className='text-2xl'>Send your Queries</div>
                     <QueryForm />
                 </div>
             </div>

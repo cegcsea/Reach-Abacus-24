@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import image from '../../../assets/Reach/placement.svg';
 import { AuthContext } from '../../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function Session() {
-    const { handleWorkshopRegister } = useContext(AuthContext);
+    const { handleWorkshopRegister, auth } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = (code) => {
         handleWorkshopRegister({ workshopId: code });
@@ -43,10 +45,18 @@ function Session() {
                                 Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.
                             </p>
                         </div>
-                        <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'
-                            onClick={() => handleRegister(3)}>
-                            Register {'<'}~{'>'}
-                        </button>
+                        {!auth && (
+                            <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'
+                                onClick={() => navigate('/login')}>
+                                Login to Register {'<'}~{'>'}
+                            </button>
+                        )}
+                        {auth && (
+                            <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'
+                                onClick={() => handleRegister(3)}>
+                                Register {'<'}~{'>'}
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

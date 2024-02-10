@@ -73,7 +73,7 @@ function UpdateProfile() {
             <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#ABB2BF] border-solid border-white-500 text-white p-5 sm:p-10 bg-[#282C33]">
                 <div className='text-2xl text-center'>
                     <span className='text-[#C778DD]'>&#60;</span>
-                    &nbsp;Sign up&nbsp;
+                    &nbsp;Update&nbsp;
                     <span className='text-[#C778DD]'>&#62;</span>
                 </div>
                 <form className='flex flex-col gap-5' onSubmit={handleSubmit}>

@@ -20,11 +20,6 @@ const Abacus24 = () => {
 
                         This flagship event showcases technical excellence through competitions, hackathons, workshops, and professional seminars, offering students a platform to exhibit their skills and vie for coveted prizes and internships.
                     </p>
-                    <div className='self-start'>
-                        <button className=" py-2 px-4 text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
-                            Read More {"<"}~{">"}
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
