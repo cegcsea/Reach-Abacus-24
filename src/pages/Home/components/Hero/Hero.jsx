@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Banner from "../../../../assets/Reach/Reach_logo.png";
-import Logo from "../../../../assets/Hero/abacus_logo.png"
+import Logo from "../../../../assets/Reach/Reach.png"
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {

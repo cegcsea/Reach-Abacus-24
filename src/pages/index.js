@@ -15,11 +15,12 @@ const WorkshopPayment = lazy(() => import('./WorkshopPayment/WorkshopPayment'));
 const UpdateProfile = lazy(() => import('./Profile/components/UdateProfile'));
 const Dashboard = lazy(() => import('./Dashboard/Dashboard'));
 const Sponsor = lazy(() => import('./Sponsors/Sponsors'));
+const Error404 = lazy(() => import('./404Page/Error'));
 
 export {
     Home, Events, SingleEvent, About, Profile,
     Workshop, Login, SignUpDetails, SingleWorkshop,
     ForgotPassWord, ForgotPassWordDetails,
     WorkshopPayment, UpdateProfile, Dashboard,
-    Sponsor
+    Sponsor, Error404
 }

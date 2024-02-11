@@ -7,7 +7,7 @@ import {
     About, ForgotPassWord, Profile,
     SingleWorkshop, ForgotPassWordDetails,
     WorkshopPayment, UpdateProfile,
-    Dashboard, Sponsor
+    Dashboard, Sponsor, Error404
 } from '../pages';
 
 import ProtectedRoute from './ProtectedRoutes';
@@ -32,6 +32,7 @@ function AllRoutes() {
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/profile/update' element={<UpdateProfile />} />
             </Route>
+            <Route path='*' element={<Error404 />} />
         </Routes>
     )
 }
