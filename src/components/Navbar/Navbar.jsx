@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import navImage from '../../assets/nav-img.png';
+import navImage from '../../assets/Reach/Reach_logo.png';
 import Navigation from './Navbar-Mobile';
 
 const Navbar = () => {
@@ -17,8 +17,7 @@ const Navbar = () => {
       {/* Left side - Icon and Heading */}
       <Link to='/'>
         <div className="flex items-center">
-          <img src={navImage} alt="Abacus Icon" className="w-8 h-8 mr-2" />
-          <span className="font-bold text-lg">Reach</span>
+          <img src={navImage} alt="Abacus Icon" className="h-8 mr-2" />
         </div>
       </Link>
 

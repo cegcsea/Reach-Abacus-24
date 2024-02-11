@@ -37,6 +37,14 @@ function WorkshopPayment() {
         setFiles(event.target.files[0]);
     };
 
+    const handleMobileChange = (e) => {
+        const regex = /^[0-9\b]+$/;
+
+        if (e.target.value === '' || regex.test(e.target.value)) {
+            setFormData((prevFormData) => ({ ...prevFormData, paymentMobile: e.target.value }));
+        }
+    }
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -76,7 +84,7 @@ function WorkshopPayment() {
                         className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} required />
 
-                    <input type='text' name='paymentMobile' placeholder='Payment Mobile No.' onChange={handleChange} value={formData.paymentMobile}
+                    <input type='text' name='paymentMobile' placeholder='Payment Mobile No.' onChange={handleMobileChange} value={formData.paymentMobile}
                         className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} required />
 

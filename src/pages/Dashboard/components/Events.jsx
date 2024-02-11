@@ -35,7 +35,7 @@ const Events = () => {
                                         </Link>
                                     </span>
                                 </p>
-                                <p className='p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800'>
+                                <p className='p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50'>
                                     <span className="text-lime-400">/*</span>
                                     &nbsp;Registered for this event!&nbsp;
                                     <span className="text-lime-400">*/</span>
@@ -66,7 +66,7 @@ const Events = () => {
                                         </Link>
                                     </span>
                                 </p>
-                                <p className='p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800'>
+                                <p className='p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50'>
                                     <span className="text-red-400">/*</span>
                                     &nbsp;Not Registered for this event!&nbsp;
                                     <span className="text-red-400">*/</span>

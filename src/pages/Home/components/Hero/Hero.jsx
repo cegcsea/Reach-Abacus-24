@@ -1,11 +1,10 @@
 import React from 'react';
 
 import Banner from "../../../../assets/Reach/Reach_logo.png";
-import Logo from "../../../../assets/Reach/Reach.png"
+import Logo from "../../../../assets/Reach/cse.png"
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-    const navigate = useNavigate();
     return (
         <>
             <div className="px-5 flex items-center justify-between sm:flex-row flex-col">

@@ -34,13 +34,21 @@ function UpdateProfile() {
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
 
+    const handleMobileChange = (e) => {
+        const regex = /^[0-9\b]+$/;
+
+        if (e.target.value === '' || regex.test(e.target.value)) {
+            setFormData((prevFormData) => ({ ...prevFormData, mobile: e.target.value }));
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         handleUpdateProfile({
             name: formData.name,
             college: formData.college,
             dept: formData.dept,
-            year: parseInt(selectionyear.value),
+            year: selectionyear == null ? user.year : parseInt(selectionyear.value),
             mobile: formData.mobile,
         });
     }
@@ -89,7 +97,7 @@ function UpdateProfile() {
                     <Dropdown options={optionsYear} value={selectionyear} onChange={handleSelectYear} selectLabel={'Update your year'} />
 
                     <input type='text' name='mobile' placeholder='Mobile' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.mobile} onChange={handleChange} required />
+                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.mobile} onChange={handleMobileChange} required />
 
                     <div className="self-center">
                         <button type='submit' className="py-2 px-4 text-white border border-[#98dd78] hover:bg-[#98dd7836] duration-150">

@@ -7,7 +7,7 @@ function Header({ workshop }) {
         <span className="text-[#C778DD]">/</span>
         <span className="text-white">{workshop.title}</span>
       </h1>
-      <h4 className="text-gray-400 text-base">Workshop tagline goes here</h4>
+      {/* <h4 className="text-gray-400 text-base">Workshop tagline goes here</h4> */}
     </div>
   );
 }

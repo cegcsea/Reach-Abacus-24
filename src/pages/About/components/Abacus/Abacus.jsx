@@ -16,7 +16,8 @@ const Abacus24 = () => {
                         </h1>
                     </div>
                     <p className='text-base sm:text-xl text-slate-300'>
-                        ABACUS, orchestrated by the Computer Science and Engineering Association (CSEA) at the College of Engineering, Guindy, is an esteemed annual intercollege symposium.
+                        ABACUS, orchestrated by the Computer Science and Engineering Association (CSEA) at the College of Engineering, Guindy (CEG - Anna University)
+                        , is an esteemed annual intercollege symposium.
 
                         This flagship event showcases technical excellence through competitions, hackathons, workshops, and professional seminars, offering students a platform to exhibit their skills and vie for coveted prizes and internships.
                     </p>

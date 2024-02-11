@@ -17,12 +17,13 @@ const Workshop = () => {
   }
 
   const workshop = workshops.find((event) => event.to === id);
+  const isPaidWorkshop = userWorkshops.find((event) => event.workshopId === workshop.code);
   const isRegistered = userWorkshops.some((event) => event.workshopId === workshop.code);
 
   return (
     <div className="bg-[#34363e]">
       <Header workshop={workshop} />
-      <Workshop_content workshop={workshop} isRegistered={isRegistered} />
+      <Workshop_content workshop={workshop} isRegistered={isRegistered} isPaidWorkshop={isPaidWorkshop} />
     </div>
   );
 };

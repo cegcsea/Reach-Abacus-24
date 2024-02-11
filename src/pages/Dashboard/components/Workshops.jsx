@@ -8,7 +8,6 @@ const Workshops = () => {
     const { userWorkshops } = useContext(AuthContext);
 
     const eventNames = userWorkshops.map(event => event.workshopId);
-
     const filteredEvents = workshops.filter(event => eventNames.includes(event.code));
     const notIncludedEvents = workshops.filter(event => !eventNames.includes(event.code));
 

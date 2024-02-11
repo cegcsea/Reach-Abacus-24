@@ -20,9 +20,17 @@ function SignUpDetails() {
     });
 
     const optionsHostCollege = [
-        { label: 'Government College of Technology', value: 'Government College of Technology' },
+        { label: 'Government College of Technology, Coimbatore', value: 'Government College of Technology, Coimbatore' },
         { label: 'PSNA College of Engineering and Technology', value: 'PSNA College of Engineering and Technology' },
     ];
+
+    const handleMobileChange = (e) => {
+        const regex = /^[0-9\b]+$/;
+
+        if (e.target.value === '' || regex.test(e.target.value)) {
+            setFormData((prevFormData) => ({ ...prevFormData, mobile: e.target.value }));
+        }
+    }
 
     const optionsYear = [
         { label: 'First year', value: '1' },
@@ -106,7 +114,7 @@ function SignUpDetails() {
                     <Dropdown options={optionsYear} value={selectionyear} onChange={handleSelectYear} selectLabel="Year" />
 
                     <input type='text' name='mobile' placeholder='Mobile' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.mobile} onChange={handleChange} required />
+                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.mobile} onChange={handleMobileChange} required />
 
                     <input type='password' name='password' placeholder='Password' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.password} onChange={handleChange} required />

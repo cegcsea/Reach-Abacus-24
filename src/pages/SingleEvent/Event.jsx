@@ -29,7 +29,7 @@ function Event() {
                     <span className=" text-[#C778DD]">/</span>
                     <span>{selectedEvent.title}</span>
                 </p>
-                <p className='text-base text-gray-400'>Tagline for the event goes here</p>
+                {/* <p className='text-base text-gray-400'>Tagline for the event goes here</p> */}
             </div>
             <div className='flex sm:flex-row flex-col justify-center items-center w-full gap-5'>
                 <div className='w-full sm:w-2/5 flex justify-center items-center'>

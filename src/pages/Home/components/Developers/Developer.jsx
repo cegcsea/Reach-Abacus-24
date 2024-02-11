@@ -19,7 +19,7 @@ const Developers = ({ isMobile }) => {
                 </div>
                 <div className="flex flex-wrap justify-between gap-4 my-12">
                     <Swiper
-                        slidesPerView={isMobile ? 1 : 3}
+                        slidesPerView={isMobile ? 1 : 4}
                         centeredSlides={true}
                         navigation={true}
                         loop="true"
