@@ -4,12 +4,14 @@ import { AuthContext } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 function Session() {
-    const { handleWorkshopRegister, auth } = useContext(AuthContext);
+    const { handleWorkshopRegister, auth, session } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = (code) => {
         handleWorkshopRegister({ workshopId: code });
     }
+
+    const isRegistered = session.map((workshop) => workshop.workshopId === 3);
 
     return (
         <div>
@@ -18,7 +20,6 @@ function Session() {
                     <span className="text-[#C778DD]">/</span>
                     <span className="text-white">session</span>
                 </h1>
-                <h4 className="text-gray-400 text-base">Session tagline goes here</h4>
             </div>
             <div className='px-2 sm:px-20 pb-10'>
                 <div className="card w-full flex sm:flex-row flex-col border border-[#ABB2BF] bg-[#292d33]">
@@ -51,11 +52,18 @@ function Session() {
                                 Login to Register {'<'}~{'>'}
                             </button>
                         )}
-                        {auth && (
+                        {(auth && !isRegistered) && (
                             <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'
                                 onClick={() => handleRegister(3)}>
                                 Register {'<'}~{'>'}
                             </button>
+                        )}
+                        {(auth && isRegistered) && (
+                            <p className='p-2 m-3 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800'>
+                                <span className="text-lime-400">/*</span>
+                                &nbsp;Already registered for this session!&nbsp;
+                                <span className="text-lime-400">*/</span>
+                            </p>
                         )}
                     </div>
                 </div>

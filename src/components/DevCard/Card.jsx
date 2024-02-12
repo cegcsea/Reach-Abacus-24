@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const DevCard = ({ img, title, disc }) => {
+const DevCard = ({ img, title, disc, linkedin }) => {
     return (
         <>
             <div className="border md:min-w-1/4 min-w-full border-[#ABB2BF] p-0">
@@ -14,11 +15,11 @@ const DevCard = ({ img, title, disc }) => {
                 </div>
                 <div className="p-4 flex flex-col gap-4">
                     <h2 className="text-[#FFFFFF] text-2xl font-medium">{title}</h2>
-                    <div className="">
+                    <Link to={linkedin} target='_blank'>
                         <button className=" py-2 px-4 text-white border border-[#C778DD] hover:bg-[#C778DD33] duration-150">
                             LinkedIn {"<"}~{">"}
                         </button>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </>

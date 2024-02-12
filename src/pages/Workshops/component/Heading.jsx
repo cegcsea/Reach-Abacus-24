@@ -7,7 +7,6 @@ function Header() {
         <span className="text-[#C778DD]">/</span>
         <span className="text-white">workshops</span>
       </h1>
-      <h4 className="text-gray-400 text-base">Workshop tagline goes here</h4>
     </div>
   );
 }

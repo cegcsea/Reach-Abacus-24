@@ -52,7 +52,8 @@ function Events() {
                                             <span className='text-[#C778DD]'>&#62;</span>
                                         </h2>
                                         <p className=' text-[#e2e3e4] p-3'>
-                                            {body.slice(0, 280)}...&nbsp;<span className='text-[#ABB2BF]'>Read More</span>
+                                            {body.slice(0, 280)}...&nbsp;
+                                            <span className='text-[#ABB2BF] cursor-pointer' onClick={() => navigate(`/events/${to}`)}>Read More</span>
                                         </p>
                                     </div>
                                     <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'

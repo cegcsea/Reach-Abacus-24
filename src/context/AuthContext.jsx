@@ -35,6 +35,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [userEvents, setUserEvents] = useState([]);
     const [userWorkshops, setUserWorkshops] = useState([]);
+    const [session, setSession] = useState([]);
 
     const handleAbacusLogin = (data) => {
         toast.promise(
@@ -233,6 +234,13 @@ const AuthProvider = ({ children }) => {
                 })
                 .catch((error) => {
                 });
+            getRegisteredWorkshops()
+                .then((data) => {
+                    console.log(data.workshops.workshops)
+                    setSession(data.workshops.workshops);
+                })
+                .catch((error) => {
+                });
         } else {
             setAuth(false);
             setUser({});
@@ -258,6 +266,7 @@ const AuthProvider = ({ children }) => {
                 user, setUser,
                 userEvents, setUserEvents,
                 userWorkshops, setUserWorkshops,
+                session, setSession,
                 handleAbacusLogin,
                 handleLogout,
                 handleAbacusRegisterLink,

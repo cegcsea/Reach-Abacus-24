@@ -15,7 +15,7 @@ const Sponsors = () => {
                 </h1>
                 <div className="line w-2/3 h-px bg-[#C778DD]"></div>
             </div>
-            <div className='flex md:flex-row flex-col justify-between items-center px-3 md:px-10 py-5 relative md:gap-0 gap-5'>
+            {/* <div className='flex md:flex-row flex-col justify-between items-center px-3 md:px-10 py-5 relative md:gap-0 gap-5'>
                 <img src={sponsors} alt="Sponsor Logo" className='w-1/2 absolute top-0.5 opacity-40 left-[25%] z-0' />
                 <div className="border border-[#ABB2BF] md:min-h-[300px] w-full md:w-1/3 z-10">
                     <div className=" p-2">
@@ -40,7 +40,11 @@ const Sponsors = () => {
                         <p className='mt-2 text-white text-center font-style'>{sponsorData[1].name}</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <p className='text-3xl sm:text-6xl mt-10 text-center text-white'>
+                COMING SOON!
+                <p className='text-sm sm:text-base text-gray-400'>Our sppnsors will be revealed soon!</p>
+            </p>
         </div>
     );
 };

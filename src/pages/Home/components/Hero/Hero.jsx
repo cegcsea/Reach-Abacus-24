@@ -30,7 +30,7 @@ const Hero = () => {
                     <div className="border flex items-center gap-2 border-[#ABB2BF] p-2 text-[#ABB2BF]">
                         <div className="w-4 h-4 bg-[#C778DD]"></div>
                         <div className="">
-                            Tagline of the year <span className="text-white">2024</span>
+                            Innovate, Integrate, Inspire: ABACUS'24
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { events } from '../../constants';
 import { LoaderContext } from '../../context/LoaderContext';
 import { Loader } from '../../components';
 import { AuthContext } from '../../context/AuthContext';
 
+import { FaClipboard, FaClock } from 'react-icons/fa';
+import { GiWatch } from 'react-icons/gi';
+
+const Card = ({ item, index }) => {
+    return (
+        <div className='w-full sm:w-1/2 flex flex-col gap-3 justify-center items-center'>
+            <p className='text-4xl text-white'>{item.title}</p>
+            <div className='flex flex-col text-white justify-center items-center w-full gap-3'>
+                <div className='flex flex-row gap-5  w-full border-gray-900/50 border px-5 py-4 md:py-2 bg-black/40 rounded-lg shadow-md'>
+                    <div className='flex justify-center items-center text-3xl'>
+                        <p><FaClipboard /></p>
+                    </div>
+                    <div className='flex flex-row ' key={index}>
+                        <p className='flex flex-col'>
+                            <p className='font-novaSquare'>{item.content}</p>
+                            <p className='text-sm text-white/70 font-subtitle'>What to expect?</p>
+                        </p>
+                    </div>
+                </div>
+                <div className='flex flex-row gap-5  w-full border-gray-900/50 border px-5 py-4 md:py-2 bg-black/40 rounded-lg shadow-md'>
+                    <div className='flex justify-center items-center text-3xl'>
+                        <p><GiWatch /></p>
+                    </div>
+                    <div className='flex flex-row ' key={index}>
+                        <p className='flex flex-col'>
+                            <p className='font-novaSquare'>{item.duration}</p>
+                            <p className='text-sm text-white/70 font-subtitle'>Duration</p>
+                        </p>
+                    </div>
+                </div>
+                <div className='flex flex-row gap-5  w-full border-gray-900/50 border px-5 py-4 md:py-2 bg-black/40 rounded-lg shadow-md'>
+                    <div className='flex justify-center items-center text-3xl'>
+                        <p><FaClock /></p>
+                    </div>
+                    <div className='flex flex-row ' key={index}>
+                        <p className='flex flex-col'>
+                            <p className='font-novaSquare'>{item.time}</p>
+                            <p className='text-sm text-white/70 font-subtitle'>Time</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 function Event() {
     const { isLoading } = useContext(LoaderContext);
-    const { handleEventRegister, auth, userEvents } = useContext(AuthContext);
+    const { handleEventRegister, auth, userEvents, user } = useContext(AuthContext);
+    const [isDesc, setIsDesc] = useState(true);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -42,9 +89,52 @@ function Event() {
                         </div>
                         <div className="line w-2/3 h-px bg-[#C778DD]"></div>
                     </div>
-                    <p className='text-white text-lg text-justify'>
-                        {selectedEvent.body}
-                    </p>
+                    {auth && (
+                        <div className='flex justify-center items-center'>
+                            <button className='m-3 w-fit border border-[#d6dd78] px-4 py-2 text-white duration-150 hover:bg-[#ddd67833]'
+                                onClick={() => setIsDesc(true)}>
+                                Description{'<'}~{'>'}
+                            </button>
+                            <button className='m-3 w-[8.5rem] border border-[#d6dd78] px-4 py-2 text-white duration-150 hover:bg-[#ddd67833]'
+                                onClick={() => setIsDesc(false)}>
+                                Rounds{'<'}~{'>'}
+                            </button>
+                        </div>
+                    )}
+                    <div className='flex flex-col gap-5'>
+                        {isDesc ? (
+                            <>
+                                <p className='text-white text-lg text-justify'>
+                                    {selectedEvent.body}
+                                </p>
+                                <p className='flex text-2xl text-white gap-2'>
+                                    <h3 className='font-light'>Team:</h3>
+                                    <h3 className='text-yellow-400 font-base'>{selectedEvent.team}</h3>
+                                </p>
+                                <p className='flex text-2xl text-white gap-2'>
+                                    <h3 className='font-light'>Prize Pool:</h3>
+                                    <h3 className='text-yellow-400 font-base'>{selectedEvent.prize}</h3>
+                                </p>
+                                {auth && (
+                                    <p className='flex text-2xl text-white gap-2'>
+                                        <h3 className='font-light'>Date:</h3>
+                                        {user.hostCollege === 'Government College of Technology, Coimbatore' ? (
+                                            <h3 className='text-yellow-400 font-base'>{selectedEvent.gctDate}</h3>
+                                        ) : (
+                                            <h3 className='text-yellow-400 font-base'>{selectedEvent.psnaDate}</h3>
+                                        )}
+                                    </p>
+                                )}
+                            </>
+                        ) : (
+                            <div className='flex sm:flex-row flex-col justify-center items-center overflow-hidden gap-3'>
+                                {selectedEvent.rounds.map((item, index) => (
+                                    <Card item={item} index={index} />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
                     {(auth && !isRegistered) && (
                         <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
                             onClick={handleRegister}>
@@ -53,7 +143,7 @@ function Event() {
                     )}
                     {!auth && (
                         <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'
-                        onClick={()=>navigate('/login')}>
+                            onClick={() => navigate('/login')}>
                             Login to Register{'<'}~{'>'}
                         </button>
                     )}

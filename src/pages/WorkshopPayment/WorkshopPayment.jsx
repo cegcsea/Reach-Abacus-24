@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { LoaderContext } from '../../context/LoaderContext';
 import { Loader } from '../../components';
+import { workshops } from '../../constants';
 import dots from '../../assets/Events/sidebg.png';
 import { AuthContext } from '../../context/AuthContext';
 import { useParams } from 'react-router-dom';
@@ -11,10 +12,16 @@ function WorkshopPayment() {
     const { id } = useParams();
     const [formData, setFormData] = useState({ transactionId: "", paymentMobile: "" });
     const [file, setFiles] = useState(null);
+    const [singleWorkshop, setSIngleWorkshop] = useState({});
     const [fileName, setFileName] = useState('Get your payment screenshot...');
     const [isMobile, setIsMobile] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
+        const foundWorkshop = workshops.find((workshop) => `${workshop.code}` === id);
+        setSIngleWorkshop(foundWorkshop);
+        console.log(foundWorkshop)
+
         const mediaQuery = window.matchMedia("(max-width: 768px)");
         setIsMobile(mediaQuery.matches);
 
@@ -63,7 +70,7 @@ function WorkshopPayment() {
     }
 
     return (
-        <div className="flex justify-center items-center py-10 sm:px-0 px-4 bg-[#34363e] h-screen gap-5">
+        <div className="flex justify-center items-center py-10 sm:px-0 px-4 bg-[#34363e] gap-5">
             {!isMobile && (
                 <div className="w-[30%] flex justify-center items-center">
                     <img src={dots} alt="dots-bg" />
@@ -79,6 +86,15 @@ function WorkshopPayment() {
                 <p className='text-base text-gray-300 text-center'>It's always better to lay down the burden of loan ASAP!</p>
 
                 <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
+                    <button type='submit' className="py-2 px-4 text-white border border-[#7882dd] hover:bg-[#787add33] duration-150"
+                        onClick={() => setIsOpen(!isOpen)}>
+                        {isOpen ? "Hide QR Code!" : "Show QR Code!"} {"<"}~{">"}
+                    </button>
+                    {isOpen && (
+                        <div>
+                            <img src={singleWorkshop.qr} alt='qrCode' className='w-full object-cover' />
+                        </div>
+                    )}
 
                     <input type='text' name='transactionId' placeholder='Transaction ID' onChange={handleChange} value={formData.transactionId}
                         className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
@@ -95,7 +111,7 @@ function WorkshopPayment() {
                             </div>
                             <p className='text-base border border-[#ABB2BF] text-gray-400 p-2'>{fileName.length > 30 ? fileName.slice(0, isMobile ? 17 : 25) + "..." : fileName}</p>
                         </label>
-                        <input type='file' id='screenshot' name='paymentScreenshot' className='hidden' onChange={handleFileChange} />
+                        <input type='file' id='screenshot' accept="image/*" name='paymentScreenshot' className='hidden' onChange={handleFileChange} />
                     </div>
 
                     <div className="self-center">

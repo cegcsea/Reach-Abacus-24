@@ -25,10 +25,10 @@ const Developers = ({ isMobile }) => {
                         loop="true"
                         spaceBetween={30}
                         modules={[Navigation]}>
-                        {developersData.map(({ img, title, disc }) => {
+                        {developersData.map(({ img, title, disc, linkedin }) => {
                             return (
                                 <SwiperSlide>
-                                    <DevCard img={img} title={title} disc={disc} />
+                                    <DevCard img={img} title={title} disc={disc} linkedin={linkedin} />
                                 </SwiperSlide>
                             );
                         })}

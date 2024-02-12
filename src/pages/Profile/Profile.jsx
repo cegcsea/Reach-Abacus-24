@@ -10,7 +10,6 @@ import devrloper from '../../assets/Hero/profile.png';
 
 function Profile() {
     const { user, handleLogout } = useContext(AuthContext);
-    console.log(user)
     const { isLoading } = useContext(LoaderContext);
     const navigate = useNavigate();
 
