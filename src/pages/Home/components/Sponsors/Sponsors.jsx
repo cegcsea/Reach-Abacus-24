@@ -43,7 +43,7 @@ const Sponsors = () => {
             </div> */}
             <p className='text-3xl sm:text-6xl mt-10 text-center text-white'>
                 COMING SOON!
-                <p className='text-sm sm:text-base text-gray-400'>Our sppnsors will be revealed soon!</p>
+                <p className='text-sm sm:text-base text-gray-400'>Our sponsors will be revealed soon!</p>
             </p>
         </div>
     );
