@@ -28,8 +28,8 @@ export const workshops = [
 
 export const sessions = [
     {
-        title: "Introduction to Machine Learning with Python",
+        title: "Placement Session",
         image: placement,
-        content: "Embark on a thrilling half-day journey into the realm of machine learning with our workshop, 'Introduction to Machine Learning with Python.' Whether you're a complete beginner or have some coding experience, this workshop is designed to make machine learning accessible and exciting in just a few hours. Dive into hands-on Python coding to create your own simple yet impactful machine learning model. No fuss, no jargon – just the essentials presented in a lively and approachable manner. Join us for a half-day of learning, coding, and exploration.",
+        content: "Participate in focused sessions on interview techniques, enhancing your confidence and readiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",
     }
 ]

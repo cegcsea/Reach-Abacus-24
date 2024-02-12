@@ -107,7 +107,7 @@ const Workshops = () => {
                             ) : (
                                 <>
                                     <span className="text-red-400">/*</span>
-                                    & nbsp;Not Registered for this session!&nbsp;
+                                    &nbsp;Not Registered for this session!&nbsp;
                                     <span className="text-red-400">*/</span>
                                 </>
                             )}

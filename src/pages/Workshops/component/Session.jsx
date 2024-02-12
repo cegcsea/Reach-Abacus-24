@@ -11,7 +11,7 @@ function Session() {
         handleWorkshopRegister({ workshopId: code });
     }
 
-    const isRegistered = session.map((workshop) => workshop.workshopId === 3);
+    const isRegistered = session.some((workshop) => workshop.workshopId === 3);
 
     return (
         <div>

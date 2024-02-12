@@ -6,6 +6,7 @@ import { Loader } from '../../../components';
 
 import dots from '../../../assets/Events/sidebg.png';
 import { useParams } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function SignUpDetails() {
     const { email, token } = useParams();
@@ -14,6 +15,8 @@ function SignUpDetails() {
     const [isMobile, setIsMobile] = useState(false);
     const [selection, setSelection] = useState(null);
     const [selectionyear, setSelectionyear] = useState(null);
+    const [isPassword, setIsPassword] = useState('password');
+    const [isCPassword, setCIsPassword] = useState('password');
     const [formData, setFormData] = useState({
         name: "", college: "", hostCollege: "",
         dept: "", year: "", mobile: "", password: "",
@@ -116,8 +119,20 @@ function SignUpDetails() {
                     <input type='text' name='mobile' placeholder='Mobile' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
                         style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.mobile} onChange={handleMobileChange} required />
 
-                    <input type='password' name='password' placeholder='Password' className='p-2 outline-none border border-[#ABB2BF] text-[18px]'
-                        style={{ width: '100%', backgroundColor: "#30343a" }} value={formData.password} onChange={handleChange} required />
+                    <div className='flex justify-center items-center border border-[#ABB2BF]'>
+                        <input type={isPassword} name='password' placeholder='Password' onChange={handleChange} value={formData.password}
+                            className='p-2 outline-none  text-[18px]'
+                            style={{ width: '100%', backgroundColor: "#30343a" }} required />
+                        {isPassword === 'password' && <span className='p-3 text-2xl bg-[#30343a] cursor-pointer' onClick={() => setIsPassword('text')}><FaEye /></span>}
+                        {isPassword === 'text' && <span className='p-3 text-2xl bg-[#30343a] cursor-pointer' onClick={() => setIsPassword('password')}><FaEyeSlash /></span>}
+                    </div>
+
+                    <div className='flex justify-center items-center border border-[#ABB2BF]'>
+                        <input type={isCPassword} name='password' placeholder='Confirm Password' className='p-2 outline-none  text-[18px]'
+                            style={{ width: '100%', backgroundColor: "#30343a" }} required />
+                        {isCPassword === 'password' && <span className='p-3 text-2xl bg-[#30343a] cursor-pointer' onClick={() => setCIsPassword('text')}><FaEye /></span>}
+                        {isCPassword === 'text' && <span className='p-3 text-2xl bg-[#30343a] cursor-pointer' onClick={() => setCIsPassword('password')}><FaEyeSlash /></span>}
+                    </div>
 
                     <div className="self-center">
                         <button type='submit' className="py-2 px-4 text-white border border-[#98dd78] hover:bg-[#98dd7836] duration-150">

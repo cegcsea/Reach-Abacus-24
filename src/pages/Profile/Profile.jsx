@@ -55,7 +55,11 @@ function Profile() {
                                 Dashboard {'<'}~{'>'}
                             </button>
                         </div>
-                        <div className='w-[50%]'>
+                        <div className='w-[50%] flex flex-col gap-4'>
+                            <button className='tracking-wider self-center w-full border border-[#ddce78] hover:bg-[#ddd57836] px-4 py-2 text-white duration-150'
+                                onClick={() => navigate('/profile/change-password')}>
+                                Change Password {'<'}~{'>'}
+                            </button>
                             <button className='tracking-wider self-center w-full border border-[#dd7878] hover:bg-[#dd787836] px-4 py-2 text-white duration-150'
                                 onClick={() => handleLogout()}>
                                 Logout {'<'}~{'>'}

@@ -8,7 +8,8 @@ import {
     abacusRegister,
     getAbacusForgotPasswordLink,
     resetForgottenPassword,
-    updateAbacusUser
+    updateAbacusUser,
+    changePassword
 } from '../api/auth';
 
 import {
@@ -132,6 +133,23 @@ const AuthProvider = ({ children }) => {
                 loading: "Resetting Password...",
                 success: (data) => {
                     navigate('/login');
+                    return data.message;
+                },
+
+                error: (err) => {
+                    return typeof err == "object" ? err.message : err;
+                },
+            }
+        );
+    }
+
+    const handleChangePassword = (data) => {
+        toast.promise(
+            changePassword(data),
+            {
+                loading: "Resetting Password...",
+                success: (data) => {
+                    navigate('/profile');
                     return data.message;
                 },
 
@@ -277,7 +295,8 @@ const AuthProvider = ({ children }) => {
                 handleWorkshopRegister,
                 handleVerifyWorkshopPayment,
                 handleUpdateProfile,
-                handleSubmitQuery
+                handleSubmitQuery,
+                handleChangePassword
             }}
         >
             {children}
