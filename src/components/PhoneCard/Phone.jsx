@@ -11,7 +11,7 @@ const Phone = ({ name, phone }) => {
           +91 {phone}
         </p>
       </div>
-      <a href='tel:123456789'>
+      <a href={`tel:${phone}`}>
         <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.5 }} className='text-[#C778DD] flex text-base justify-center items-center p-3 rounded-full bg-slate-600/70'>
           <FaPhoneAlt />
         </motion.div>

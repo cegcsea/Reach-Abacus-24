@@ -53,15 +53,15 @@ export const developersData = [
 export const contactsData = [
     {
         name: "Sangami M",
-        phone: "9942896494",
+        phone: 9942896494,
     },
     {
         name: "Ashwin Muthuraman A",
-        phone: "9360523558",
+        phone: 9360523558,
     },
     {
         name: "Janavarshini",
-        phone: "9498072377",
+        phone: 9498072377,
     },
 ];
 

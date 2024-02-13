@@ -48,7 +48,7 @@ export const events = [
         gctDate: "20 February 2024",
         psnaDate: "23 February 2024",
         image: OSPC,
-        prize: "Rs 1.3k+"
+        prize: "Rs 1k+"
     },
     {
         title: "DesignSprint",
@@ -68,7 +68,7 @@ export const events = [
         gctDate: "20 February 2024",
         psnaDate: "23 February 2024",
         image: UIUX,
-        prize: "Rs 1.3k+"
+        prize: "Rs 1k+"
     },
     {
         title: "Reverse_Coding",
@@ -94,6 +94,6 @@ export const events = [
         gctDate: "20 February 2024",
         psnaDate: "23 February 2024",
         image: ReverseCoding,
-        prize: "Rs 1.3k+"
+        prize: "Rs 1k+"
     },
 ];
