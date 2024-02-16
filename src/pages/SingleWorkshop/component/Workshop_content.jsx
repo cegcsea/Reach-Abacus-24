@@ -37,7 +37,12 @@ function Workshop_content({ workshop, isRegistered, isPaidWorkshop }) {
         <div className=" text-white">
           <p className='text-justify text-base sm:text-xl'>
             {workshop.content}<br /> <br />
-            <p><span className='font-bold'>Pre-requisite: </span>{workshop.prerequistes}</p>
+            <p><span className='font-bold text-xl'>Pre-requisites: </span>
+            <ul className='flex flex-col gap-2 list-disc mt-2'>
+              <li>Participants are required to bring laptops.</li>
+              <li>{workshop.prerequistes}</li>
+            </ul>
+            </p>
           </p>
         </div>
         {(auth && !isRegistered) && (
