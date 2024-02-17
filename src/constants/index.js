@@ -1,6 +1,7 @@
 // Add constant files here
 import spon1 from '../assets/Sponsors/spon11.jpg';
-import spon3 from '../assets/Sponsors/spon3.jpg';
+import spon3 from '../assets/Sponsors/tmb.png';
+import e2w from '../assets/Reach/e2w.png';
 
 import naren from '../assets/Devs/naren.jpg';
 import nikhil from '../assets/Devs/nikhil.jpg';
@@ -13,7 +14,8 @@ import { workshops } from './workshops';
 import { sessions } from './workshops';
 
 export const sponsorData = [
-    { image: spon1, name: 'Motorq', desc: "Abacus'24 Sponsor" },
+    { image: spon1, name: 'Motorq', desc: "Title Sponsor" },
+    { image: e2w, name: 'E2W Study', desc: "Educational Sponsor" },
     { image: spon3, name: 'TMB', desc: "REACH'24 Sponsor" },
 ];
 

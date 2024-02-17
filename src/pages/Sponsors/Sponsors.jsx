@@ -4,6 +4,7 @@ import { Loader } from '../../components';
 
 import MotorQ from './components/Motrq/Motorq';
 import TMB from './components/TMB/TMB';
+import E2W from './components/E2W/E2W';
 import Header from './components/Header/Header';
 
 function Sponsor() {
@@ -18,6 +19,7 @@ function Sponsor() {
       <Header />
       <MotorQ />
       <TMB />
+      <E2W />
     </div>
   )
 }
