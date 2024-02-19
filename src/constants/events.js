@@ -16,7 +16,8 @@ export const events = [
                 title: "Round 1",
                 content: "MCQ pen and paper event",
                 duration: "30 minutes",
-                time: "01:30 PM to 04:00 PM"
+                time: "01:30 PM to 04:00 PM",
+                venue: "Main Building Room No 238"
             },
         ],
         gctDate: "19 February 2024",
@@ -36,13 +37,15 @@ export const events = [
                 title: "Round 1",
                 content: "MCQ pen and paper event",
                 duration: "30 minutes",
-                time: "9:00 AM to 12:30 PM"
+                time: "9:00 AM to 12:00 PM",
+                venue: "CSE Department"
             },
             {
                 title: "Round 2",
                 content: "Hackerrank Test",
                 duration: "90 minutes",
-                time: "01:30 PM to 03:00 PM"
+                time: "01:30 PM to 03:00 PM",
+                venue: "CSE Department"
             },
         ],
         gctDate: "20 February 2024",
@@ -62,7 +65,8 @@ export const events = [
                 title: "Round 1",
                 content: "Design the required problem statement in canva or any software, rolling event",
                 duration: "60 minutes",
-                time: "9:00 AM to 12:30 PM"
+                time: "9:00 AM to 12:00 PM",
+                venue: "CSE Department"
             },
         ],
         gctDate: "20 February 2024",
@@ -82,13 +86,15 @@ export const events = [
                 title: "Round 1",
                 content: "Write logic/code for the given input-output sequence, offline, pen-paper round, rolling event",
                 duration: "30 minutes",
-                time: "9:00 AM to 12:30 PM"
+                time: "9:00 AM to 12:00 PM",
+                venue: "CSE Department"
             },
             {
                 title: "Round 2",
                 content: "Run executable files and deduce the code",
                 duration: "90 minutes",
-                time: "01:30 PM to 03:00 PM"
+                time: "01:30 PM to 03:00 PM",
+                venue: "CSE Department"
             },
         ],
         gctDate: "20 February 2024",

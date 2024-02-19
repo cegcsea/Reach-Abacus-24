@@ -17,7 +17,7 @@ const Abacus24 = () => {
                         </h1>
                     </div>
                     <p className='text-base sm:text-xl text-slate-300'>
-                    E2W Study was founded with a mission to bring world-class education closer to our students. Since our inception, we have helped more than 2700+ students and professionals realize their dreams of studying abroad and settling in overseas countries. We are here to help students to realize their dream of studying in UK , Europe , Canada , Australia and Singapore.
+                    E2W STUDY was founded with a mission to bring world-class education closer to our students. Since our inception, we have helped more than 2700+ students and professionals realize their dreams of studying abroad and settling in overseas countries. We are here to help students to realize their dream of studying in UK , Europe , Canada , Australia and Singapore.
                     </p>
                     <div className='self-start'>
                         <Link to={'https://e2wstudy.com'} target='_blank'>

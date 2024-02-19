@@ -15,7 +15,7 @@ import { sessions } from './workshops';
 
 export const sponsorData = [
     { image: spon1, name: 'Motorq', desc: "Title Sponsor" },
-    { image: e2w, name: 'E2W Study', desc: "Educational Sponsor" },
+    { image: e2w, name: 'E2W STUDY', desc: "Educational Sponsor" },
     { image: spon3, name: 'TMB', desc: "REACH'24 Sponsor" },
 ];
 
@@ -34,7 +34,7 @@ export const developersData = [
     },
     {
         img: vishwanth,
-        title: "Vishwanth",
+        title: "Vishwannth",
         linkedin: "https://www.linkedin.com/in/vishwannth-j/",
         disc: "Frontend Developer",
     },

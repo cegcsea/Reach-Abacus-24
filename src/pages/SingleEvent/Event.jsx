@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 import { FaClipboard, FaClock } from 'react-icons/fa';
 import { GiWatch } from 'react-icons/gi';
+import { FaLocationDot } from 'react-icons/fa6';
 
 const Card = ({ item, index }) => {
     return (
@@ -32,6 +33,17 @@ const Card = ({ item, index }) => {
                         <p className='flex flex-col'>
                             <p className='font-novaSquare'>{item.duration}</p>
                             <p className='text-sm text-white/70 font-subtitle'>Duration</p>
+                        </p>
+                    </div>
+                </div>
+                <div className='flex flex-row gap-5  w-full border-gray-900/50 border px-5 py-4 md:py-2 bg-black/40 rounded-lg shadow-md'>
+                    <div className='flex justify-center items-center text-3xl'>
+                        <p><FaLocationDot /></p>
+                    </div>
+                    <div className='flex flex-row ' key={index}>
+                        <p className='flex flex-col'>
+                            <p className='font-novaSquare'>{item.venue}</p>
+                            <p className='text-sm text-white/70 font-subtitle'>Location</p>
                         </p>
                     </div>
                 </div>

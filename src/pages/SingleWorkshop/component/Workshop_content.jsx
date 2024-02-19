@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
 import { Link } from 'react-router-dom';
-import { FaInfo } from 'react-icons/fa';
+import { FaClock, FaInfo, FaLocationArrow, FaMoneyBill } from 'react-icons/fa';
 
 function Workshop_content({ workshop, isRegistered, isPaidWorkshop }) {
-  const { auth } = useContext(AuthContext);
+  const { auth, user } = useContext(AuthContext);
 
   const colorFinder = (status) => {
     if (status === 'PENDING') return 'text-yellow-500';
@@ -22,9 +22,16 @@ function Workshop_content({ workshop, isRegistered, isPaidWorkshop }) {
           className="w-full"
         />
       </div>
-
       {/* Second Column */}
       <div className="lg:w-full md:w-full sm:w-full sm:p-4 p-0 flex flex-col gap-5">
+        {workshop.bulkBooking && (
+          <p className='flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl'>
+            <span className='text-yellow-300 text-2xl p-1 rounded-full'>
+              <FaMoneyBill />
+            </span>
+            Bulk Booking available! For 5 participants, Rs. 1000/- only!
+          </p>
+        )}
         <div className='flex items-center justify-left text-white'>
           <h1 className='sm:text-2xl text-lg'>
             <span className="text-[#C778DD] font-semibold">#</span>
@@ -37,20 +44,43 @@ function Workshop_content({ workshop, isRegistered, isPaidWorkshop }) {
         <div className=" text-white">
           <p className='text-justify text-base sm:text-xl'>
             {workshop.content}<br /> <br />
+            {(auth && user.hostCollege === 'Government College of Technology, Coimbatore') && (
+              <>
+                <div className='flex flex-col gap-2'>
+                  <p className='flex gap-2 items-center'>
+                    <span className='text-2xl text-red-400'><FaLocationArrow /></span>
+                    {workshop.venue[0].location}
+                  </p>
+                  <p className='flex gap-3 items-center'>
+                    <span className='text-2xl text-yellow-300'><FaClock /></span>
+                    {workshop.venue[0].time}
+                  </p>
+                </div><br />
+              </>
+            )}
             <p><span className='font-bold text-xl'>Pre-requisites: </span>
-            <ul className='flex flex-col gap-2 list-disc mt-2'>
-              <li>Participants are required to bring laptops.</li>
-              <li>{workshop.prerequistes}</li>
-            </ul>
+              <ul className='flex flex-col gap-3 list-disc mt-2'>
+                <li>Participants are required to bring laptops.</li>
+                <li>{workshop.prerequistes}</li>
+              </ul>
             </p>
           </p>
         </div>
         {(auth && !isRegistered) && (
-          <Link to={`/workshops/${workshop.code}/payment`}>
-            <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
-              Register {'<'}~{'>'}
-            </button>
-          </Link>
+          <div className='flex gap-3'>
+            <Link to={`/workshops/${workshop.code}/payment`}>
+              <button className='m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]'>
+                Register {'<'}~{'>'}
+              </button>
+            </Link>
+            {workshop.bulkBooking && (
+              <Link to={workshop.bulkBooking.link} target='_blank'>
+                <button className='m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]'>
+                  Bulk Register {'<'}~{'>'}
+                </button>
+              </Link>
+            )}
+          </div>
         )}
         {(auth && isRegistered && isPaidWorkshop.status === 'PENDING') && (
           <>

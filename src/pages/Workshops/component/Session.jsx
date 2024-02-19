@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import image from '../../../assets/Reach/placement.svg';
 import { AuthContext } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { FaLocationDot } from 'react-icons/fa6';
 
 function Session() {
-    const { handleWorkshopRegister, auth, session } = useContext(AuthContext);
+    const { handleWorkshopRegister, auth, user, session } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = (code) => {
@@ -45,6 +46,12 @@ function Session() {
                                 <span className='font-bold text-lg'>Mock Interviews: </span><br />
                                 Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.
                             </p>
+                            {(auth && user.hostCollege === 'Government College of Technology, Coimbatore') && (
+                                <p className='text-[#e2e3e4] p-3 text-base flex gap-2 items-center'>
+                                    <span className='text-2xl text-red-400'><FaLocationDot /></span>
+                                    Seminar hall CSE department, GCT
+                                </p>
+                            )}
                         </div>
                         {!auth && (
                             <button className='m-3 mb-7 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33] sm:self-start self-center'
