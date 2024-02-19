@@ -24,7 +24,7 @@ function Workshop_content({ workshop, isRegistered, isPaidWorkshop }) {
       </div>
       {/* Second Column */}
       <div className="lg:w-full md:w-full sm:w-full sm:p-4 p-0 flex flex-col gap-5">
-        {workshop.bulkBooking && (
+        {(auth && workshop.bulkBooking) && (
           <p className='flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl'>
             <span className='text-yellow-300 text-2xl p-1 rounded-full'>
               <FaMoneyBill />
