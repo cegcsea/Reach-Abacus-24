@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
+import { FaInfo } from 'react-icons/fa6';
 
 function SignUp() {
     const { handleAbacusRegisterLink } = useContext(AuthContext)
@@ -30,6 +31,12 @@ function SignUp() {
                     </button>
                 </div>
             </form>
+            <p className='flex justify-center text-sm items-center gap-2 text-white bg-gray-500 py-3 px-3 rounded-[30px]'>
+                <span className='text-white bg-red-400 p-1 rounded-full'>
+                    <FaInfo />
+                </span>
+                Please check the email entered if you didn't receive the registration link.
+            </p>
         </>
     );
 }
