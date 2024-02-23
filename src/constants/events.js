@@ -38,14 +38,14 @@ export const events = [
                 content: "MCQ pen and paper event",
                 duration: "30 minutes",
                 time: "9:00 AM to 12:00 PM",
-                venue: "Main Block - Room 238"
+                venue: "Cse Department, 2nd Floor, Room 211"
             },
             {
                 title: "Round 2",
                 content: "Hackerrank Test",
                 duration: "90 minutes",
                 time: "01:30 PM to 03:00 PM",
-                venue: "Main Block - Room 238"
+                venue: "Cse Department, 2nd Floor, Room 211"
             },
         ],
         gctDate: "20 February 2024",
@@ -66,7 +66,7 @@ export const events = [
                 content: "Design the required problem statement in canva or any software, rolling event",
                 duration: "60 minutes",
                 time: "9:00 AM to 12:00 PM",
-                venue: "DCSE Lab"
+                venue: "Cse Department, 2nd Floor, Room 209"
             },
         ],
         gctDate: "20 February 2024",
@@ -87,14 +87,14 @@ export const events = [
                 content: "Write logic/code for the given input-output sequence, offline, pen-paper round, rolling event",
                 duration: "30 minutes",
                 time: "9:00 AM to 12:00 PM",
-                venue: "DCSE Lab"
+                venue: "Cse Department, 2nd Floor, Room 210"
             },
             {
                 title: "Round 2",
                 content: "Run executable files and deduce the code",
                 duration: "90 minutes",
                 time: "01:30 PM to 03:00 PM",
-                venue: "DCSE Lab"
+                venue: "Cse Department, 2nd Floor, Room 210"
             },
         ],
         gctDate: "20 February 2024",

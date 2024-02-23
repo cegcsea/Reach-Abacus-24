@@ -44,7 +44,7 @@ function Workshop_content({ workshop, isRegistered, isPaidWorkshop }) {
         <div className=" text-white">
           <p className='text-justify text-base sm:text-xl'>
             {workshop.content}<br /> <br />
-            {(auth && user.hostCollege === 'Government College of Technology, Coimbatore') && (
+            {(auth && user.hostCollege === 'PSNA College of Engineering and Technology') && (
               <>
                 <div className='flex flex-col gap-2'>
                   <p className='flex gap-2 items-center'>

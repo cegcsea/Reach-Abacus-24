@@ -254,7 +254,6 @@ const AuthProvider = ({ children }) => {
                 });
             getRegisteredWorkshops()
                 .then((data) => {
-                    console.log(data.workshops.workshops)
                     setSession(data.workshops.workshops);
                 })
                 .catch((error) => {

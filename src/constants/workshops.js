@@ -16,8 +16,8 @@ export const workshops = [
         qr: MERN_300,
         venue: [
             {
-                name: "Government College of Technology, Coimbatore",
-                time: "09:30 AM to 04:00 PM", location: "Rudra block 2nd floor CSE II Year Classroom"
+                name: "PSNA College of Engineering and Technology",
+                time: "09:30 AM to 04:00 PM", location: "CSE Department, First Floor Lab"
             },
         ],
         code: 1,
@@ -31,8 +31,8 @@ export const workshops = [
         qr: ML_150,
         venue: [
             {
-                name: "Government College of Technology, Coimbatore",
-                time: "09:00 AM to 12:00 PM", location: "Seminar Hall, DCSE"
+                name: "PSNA College of Engineering and Technology",
+                time: "09:00 AM to 12:00 PM", location: "CSE Department, Second Floor Lab"
             },
         ],
         code: 2,

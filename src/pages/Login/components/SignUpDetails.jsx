@@ -23,7 +23,6 @@ function SignUpDetails() {
     });
 
     const optionsHostCollege = [
-        { label: 'Government College of Technology, Coimbatore', value: 'Government College of Technology, Coimbatore' },
         { label: 'PSNA College of Engineering and Technology', value: 'PSNA College of Engineering and Technology' },
     ];
 
