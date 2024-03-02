@@ -1,6 +1,6 @@
 import api from "./axios";
 
-const url = '/user';
+const url = '/user1';
 
 const getRegisteredEvents = async () => {
     try {

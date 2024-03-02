@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import api from "./axios";
 
-const url = '/user';
+const url = '/user1';
 
 const abacusLogin = async (data) => {
     try {
